@@ -4,8 +4,24 @@ import Nav from '../Nav/Nav';
 import About from '../About/About';
 import { BrowserRouter, Route } from 'react-router-dom';
 import Projects from '../Projects/Projects';
+import Project from '../Project/Project';
+
+export interface MenuItem {
+  title: string;
+  url: string;
+  icon?: string;
+}
+
+export interface IProject {
+  name: string;
+  urlName: string;
+  roles: string;
+  description?: string;
+  url?: string;
+}
 
 class App extends Component {
+
   render() {
 
     return (
@@ -14,19 +30,17 @@ class App extends Component {
         <div className={styles.app}>
           <div className={styles['app__sidebar']}>
             
-            <Nav />
+            <Nav menuItems={this.menuItems} />
 
           </div>
 
           <div className={styles['app__content']}>
 
-            <Route path='/om-mig' component={About} />
+            <Route exact={true} path='/' component={About} />
 
-            <Route exact={true} path='/projekter' component={Projects} />
+            <Route exact={true} path='/projekter' render={ () => <Projects projects={ this.projects } />} />
 
-            <div className={styles['app__contentCorner']}>
-
-            </div>
+            <Route exact={true} path='/projekter/:project' render={ ({match}) => <Project project={ this.projects.filter( pro => pro.urlName == match.params.project)[0]  } /> } />
 
           </div>
         </div>
@@ -34,6 +48,51 @@ class App extends Component {
       </BrowserRouter>
     );
   }
+
+  private menuItems: MenuItem[] = [
+    {
+      title: 'Om mig',
+      url: '',
+      icon: 'people'
+    },
+    {
+      title: 'Udvalgte Projekter',
+      url: 'projekter',
+      icon: 'bookmark'
+    },
+    {
+      title: 'Kontakt',
+      url: 'kontakt',
+      icon: 'message'
+    }
+  ];
+
+  private projects: IProject[] = [
+    {
+      name: 'Dental Media',
+      urlName: 'dental-media',
+      roles: 'Front end & Design',
+      url: 'http://dentalmedia.io/en/'
+    },
+    {
+      name: 'VENZO.NXT',
+      urlName: 'venzo-nxt',
+      roles: 'Front end & Design',
+      url: 'http://venzonxt.com/'
+    },
+    {
+      name: 'Hydr Esport',
+      urlName: 'hydr-esport',
+      roles: 'Front end',
+      url: 'http://www.hydr-esport.com/'
+    },
+    {
+      name: 'Book Business',
+      urlName: 'book-business',
+      roles: 'Front end & Design',
+      url: 'http://mbpmedia.com/bookbusiness/'
+    },
+  ];
 }
 
 export default App;

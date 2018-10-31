@@ -2,20 +2,17 @@ import * as React from 'react';
 import { Link } from 'react-router-dom';
 import styles from './Projects.module.scss';
 
+import { IProject } from '../App/App';
+
 export interface ProjectsProps {
-  
+  projects: IProject[];
 }
  
 export interface ProjectsState {
   
 }
 
-export interface Project {
-  name: string;
-  roles: string;
-  description?: string;
-  url?: string;
-}
+
  
 class Projects extends React.Component<ProjectsProps, ProjectsState> {
   render() { 
@@ -28,36 +25,10 @@ class Projects extends React.Component<ProjectsProps, ProjectsState> {
     );
   }
 
-  private projects: Project[] = [
-    {
-      name: 'Dental Media',
-      roles: 'Front end & Design',
-      url: 'http://dentalmedia.io/en/'
-    },
-    {
-      name: 'VENZO.NXT',
-      roles: 'Front end & Design',
-      url: 'http://venzonxt.com/'
-    },
-    {
-      name: 'Hydr Esport',
-      roles: 'Front end',
-      url: 'http://www.hydr-esport.com/'
-    },
-    {
-      name: 'Book Business',
-      roles: 'Front end & Design',
-      url: 'http://mbpmedia.com/bookbusiness/'
-    },
-  ];
-
   private getProjectCards() {
-    return this.projects.map( project => {
-      const urlName = project.name
-                      .toLowerCase()
-                      .replace(/\s|\.|\//g, '-');
-      
-      return (<div className={`column col-6 col-xs-12 ${styles['projects__column']}`}>
+    return this.props.projects.map( 
+
+      project => <div className={`column col-6 col-xs-12 ${styles['projects__column']}`}>
 
         <div className="card">
           <div className="card-image">
@@ -71,16 +42,20 @@ class Projects extends React.Component<ProjectsProps, ProjectsState> {
 
           <div className="card-footer">
             <div className="btn-group btn-group-block">
-              <Link to={'/projekter/' + urlName} className="btn btn-primary"> Vis projekt </Link>
+              <Link to={'/projekter/' + project.urlName} className="btn btn-primary"> Vis projekt </Link>
 
-              { project.url != null ? <a href={project.url} target='_blank' rel='noopener' className="btn"> Besøg side </a> : '' }
+              { project.url != null 
+                ? <a href={project.url} target='_blank' rel='noopener' className="btn"> 
+                Besøg side 
+                <i className="icon mx-2 icon-link"></i> 
+                </a> : '' }
               
             </div>
           </div>
         </div>
 
-      </div>)
-    })
+      </div>
+    );
   }
 
 }

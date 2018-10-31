@@ -53,6 +53,9 @@
     & > li {
       font-size: inherit;
       color: $white;
+      
+      display: flex;
+      align-items: center;
     }
 
     &:hover {
@@ -79,6 +82,12 @@
         color: $white !important;
       }
     }
+    
+  }
 
+  &__item-icon {
+    margin-right: 15px;
+    margin-left: 5px;
+    font-size: .8em;
   }
 }

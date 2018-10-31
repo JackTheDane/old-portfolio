@@ -3,13 +3,13 @@ import styles from './Nav.module.scss';
 import Logo from '../../images/mainLogo-white.png';
 import { Link, NavLink } from 'react-router-dom';
 
-export interface MenuItem {
-  title: string;
-  url: string;
-  icon?: string;
+import { MenuItem } from '../App/App';
+
+export interface NavProps {
+  menuItems: MenuItem[];
 }
 
-class Nav extends Component {
+class Nav extends Component<NavProps, {}> {
 
   render() {
 
@@ -28,25 +28,11 @@ class Nav extends Component {
     );
   }
 
-  private menuItems: MenuItem[] = [
-    {
-      title: 'Om mig',
-      url: 'om-mig'
-    },
-    {
-      title: 'Projekter',
-      url: 'projekter'
-    },
-    {
-      title: 'Kontakt',
-      url: 'kontakt'
-    }
-  ]
-
   private getListItems() {
-    return this.menuItems.map( item => {
-      return <NavLink activeClassName={styles['menu__item--selected']} to={ `/${item.url}` } className={styles['menu__item']}>
+    return this.props.menuItems.map( item => {
+      return <NavLink exact={true} activeClassName={styles['menu__item--selected']} to={ `/${item.url}` } className={styles['menu__item']}>
         <li>
+          { item.icon != null ? <i className={`icon icon-${item.icon} ${styles['menu__item-icon']}`}></i> : ''}
           {item.title}
         </li>
       </NavLink>

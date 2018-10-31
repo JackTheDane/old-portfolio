@@ -47,7 +47,7 @@ class About extends Component<AboutProps, AboutState> {
               Om mig
             </h3>
             <p>
-              Frontend-udvikler & selvstændig IT-konsulent, bosat i Hovedstadsområdet på Sjælland. 
+              Frontend-udvikler & IT-konsulent, bosat i Hovedstadsområdet på Sjælland. 
             <br/>Jeg har været i Web-branchen siden 2015, og har arbejdet professionelt siden maj 2017, som hhv. freelancer, deltidsansat og selvstændig.
             <br/>
             <br/>
