@@ -78,8 +78,8 @@ class About extends Component<AboutProps, AboutState> {
   ]
 
   private getChips() {
-    return this.skills.map( skill => {
-      return <div className="chip">
+    return this.skills.map( (skill, i: number) => {
+      return <div className="chip" key={'skill_' + i}>
         <img src={skill.img} className="avatar avatar-sm"/>
         {skill.name}
       </div>

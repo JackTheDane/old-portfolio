@@ -29,8 +29,8 @@ class Nav extends Component<NavProps, {}> {
   }
 
   private getListItems() {
-    return this.props.menuItems.map( item => {
-      return <NavLink exact={true} activeClassName={styles['menu__item--selected']} to={ `/${item.url}` } className={styles['menu__item']}>
+    return this.props.menuItems.map( (item, i: number) => {
+      return <NavLink key={'navItem_' + i} exact={true} activeClassName={styles['menu__item--selected']} to={ `/${item.url}` } className={styles['menu__item']}>
         <li>
           { item.icon != null ? <i className={`icon icon-${item.icon} ${styles['menu__item-icon']}`}></i> : ''}
           {item.title}

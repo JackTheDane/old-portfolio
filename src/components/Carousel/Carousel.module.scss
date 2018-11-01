@@ -1,0 +1,87 @@
+@import '../../colors';
+
+.carousel {
+  width: 100%;
+  padding-top: 50%;
+
+  margin: auto;
+  position: relative;
+
+  background-color: lightgray;
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+
+  &__navigation-button {
+    background-color: transparent !important;
+
+    
+    color: $white;
+    border: none;
+    
+    position: absolute;
+    top: 0;
+    
+    height: 100%;
+    width: 56px;
+    font-size: 20px;
+    
+    opacity: 0;
+
+    &::before {
+      content: '';
+      height: 100%;
+      width: 100%;
+
+      position: absolute;
+      top: 0;
+      bottom: 0;
+
+      opacity: .5;
+      transition: opacity .2s;
+    }
+
+    &:hover {
+      &::before {
+        opacity: 1;
+      }
+    }
+    
+    &--left {
+      
+      &,
+      &::before {
+        left: 0;
+      }
+
+      &::before {
+        background-image: linear-gradient(to right, rgba(0,0,0, .5), transparent);
+      }
+    }
+
+    &--right {
+
+      &,
+      &::before {
+        right: 0;
+      }
+
+      &::before {
+        background-image: linear-gradient(to left, rgba(0,0,0, .5), transparent);
+      }
+    }
+
+    &:active, 
+    &:focus {
+      outline: none;
+      outline-style:none;
+      box-shadow:none;
+    }
+  }
+
+  &:hover {
+    .carousel__navigation-button {
+      opacity: 1;
+    }
+  }
+}

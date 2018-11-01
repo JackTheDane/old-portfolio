@@ -6,6 +6,8 @@ import { BrowserRouter, Route } from 'react-router-dom';
 import Projects from '../Projects/Projects';
 import Project from '../Project/Project';
 
+import ProfileImage from '../../images/profile.jpg';
+
 export interface MenuItem {
   title: string;
   url: string;
@@ -18,6 +20,7 @@ export interface IProject {
   roles: string;
   description?: string;
   url?: string;
+  images: string[];
 }
 
 class App extends Component {
@@ -72,25 +75,41 @@ class App extends Component {
       name: 'Dental Media',
       urlName: 'dental-media',
       roles: 'Front end & Design',
-      url: 'http://dentalmedia.io/en/'
+      url: 'http://dentalmedia.io/en/',
+      images: [
+        'https://picturepan2.github.io/spectre/img/osx-el-capitan.jpg',
+        ProfileImage
+      ]
     },
     {
       name: 'VENZO.NXT',
       urlName: 'venzo-nxt',
       roles: 'Front end & Design',
-      url: 'http://venzonxt.com/'
+      url: 'http://venzonxt.com/',
+      images: [
+        'https://picturepan2.github.io/spectre/img/osx-el-capitan.jpg',
+        ProfileImage
+      ]
     },
     {
       name: 'Hydr Esport',
       urlName: 'hydr-esport',
       roles: 'Front end',
-      url: 'http://www.hydr-esport.com/'
+      url: 'http://www.hydr-esport.com/',
+      images: [
+        'https://picturepan2.github.io/spectre/img/osx-el-capitan.jpg',
+        ProfileImage
+      ]
     },
     {
       name: 'Book Business',
       urlName: 'book-business',
       roles: 'Front end & Design',
-      url: 'http://mbpmedia.com/bookbusiness/'
+      url: 'http://mbpmedia.com/bookbusiness/',
+      images: [
+        'https://picturepan2.github.io/spectre/img/osx-el-capitan.jpg',
+        ProfileImage
+      ]
     },
   ];
 }

@@ -28,11 +28,11 @@ class Projects extends React.Component<ProjectsProps, ProjectsState> {
   private getProjectCards() {
     return this.props.projects.map( 
 
-      project => <div className={`column col-6 col-xs-12 ${styles['projects__column']}`}>
+      (project, i: number) => <div key={'proj_' + i} className={`column col-6 col-xs-12 ${styles['projects__column']}`}>
 
         <div className="card">
           <div className="card-image">
-            <img src="https://picturepan2.github.io/spectre/img/osx-el-capitan.jpg" className="img-responsive" />
+            <img src={project.images[0]} className="img-responsive" />
           </div>
 
           <div className="card-header">
@@ -46,8 +46,8 @@ class Projects extends React.Component<ProjectsProps, ProjectsState> {
 
               { project.url != null 
                 ? <a href={project.url} target='_blank' rel='noopener' className="btn"> 
-                Besøg side 
-                <i className="icon mx-2 icon-link"></i> 
+                  Besøg side 
+                  <i className="icon mx-2 icon-link"></i> 
                 </a> : '' }
               
             </div>
