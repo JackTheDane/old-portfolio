@@ -3,6 +3,7 @@ import styles from './Project.module.scss';
 import Carousel from '../Carousel/Carousel';
 
 import { IProject } from '../App/App';
+import { Link } from 'react-router-dom';
 
 export interface ProjectProps {
   project: IProject;
@@ -19,6 +20,8 @@ class Project extends React.Component<ProjectProps, ProjectState> {
   }
   render() { 
     return ( <div className={styles.project}>
+      <Link to='/projekter' className="btn btn-lg my-2"><i className="icon icon-back"></i> Tilbage </Link>
+
       <Carousel images={this.props.project.images} />
 
       <h2>
