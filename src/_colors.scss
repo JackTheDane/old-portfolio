@@ -1,6 +1,9 @@
 // $primary: #081B2D;
-$secondary: #051727;
+@import './spectre/variables';
 
-$primary: #144777;
 
-$white: #FCFDFF;
+$primary: $primary-color;
+
+$secondary: $secondary-color-dark;
+
+$white: $bg-color-light;

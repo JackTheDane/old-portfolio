@@ -1,4 +1,4 @@
-import * as React from 'react';
+import React from 'react';
 import { Link } from 'react-router-dom';
 import styles from './Projects.module.scss';
 
@@ -16,11 +16,18 @@ export interface ProjectsState {
  
 class Projects extends React.Component<ProjectsProps, ProjectsState> {
   render() { 
-    return ( 
-      <div className="columns">
+    return (
+      <div>
 
-        {this.getProjectCards()}        
+        <h2>
+          Projekter
+        </h2>
+        
+        <div className="columns">
 
+          {this.getProjectCards()}        
+
+        </div>
       </div>
     );
   }

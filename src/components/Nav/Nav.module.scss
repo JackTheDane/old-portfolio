@@ -36,21 +36,21 @@
     // TODO: Revamp selection hover interaction
     
     font-size: 1.2rem;
-    margin-bottom: 20px;
-    padding: 6px 25px 6px 2px;
-    border-bottom: 1px solid rgba($color: $white, $alpha: .2);
-
+    margin-top: 15px;
+    
     cursor: pointer;
     user-select: none;
     text-decoration: none !important;
-
+    
     
     &,
     & > li {
       transition: all .3s;
     }
-
+    
     & > li {
+      padding: 6px 25px 6px 2px;
+      border-bottom: 1px solid rgba($color: $white, $alpha: .2);
       font-size: inherit;
       color: $white;
       
@@ -64,25 +64,46 @@
       } 
     }
     
-    @for $i from 1 through 3 {
-      &:nth-child(#{$i}) {
-        margin-right: 20px + 12px * $i;
-
-        &.menu__item--selected {
-          margin-right: 0px + 12px * $i;
-        }
-      }
-    }
-    
     &--selected {
-      border-bottom-color: $white;
       opacity: 1 !important;
-
+      
       & > li {
+        border-bottom-color: $white;
         color: $white !important;
       }
     }
     
+  }
+
+  &__subitem {
+    color: $white !important;
+    text-decoration: none !important;
+    display: block;
+    opacity: .5;
+
+    &:hover,
+    &--selected {
+      opacity: 1;
+    }
+  }
+
+  &__subitem-list {
+    max-height: 0;
+    display: block;
+    overflow: hidden;
+    transition: max-height .4s .05s;
+    text-decoration: none !important;
+
+
+    & > ul {
+      margin-bottom: 0;
+      list-style: none;
+    }
+
+
+    &--selected {
+      max-height: 300px;
+    }
   }
 
   &__item-icon {

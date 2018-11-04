@@ -1,4 +1,4 @@
-import * as React from 'react';
+import React from 'react';
 import styles from './Project.module.scss';
 import Carousel from '../Carousel/Carousel';
 
@@ -20,17 +20,15 @@ class Project extends React.Component<ProjectProps, ProjectState> {
   }
   render() { 
     return ( <div className={styles.project}>
-      <Link to='/projekter' className="btn btn-lg my-2"><i className="icon icon-back"></i> Tilbage </Link>
+      <Link to='/projekter' className="btn btn-link btn-lg my-2"><i className="icon icon-back"></i> Tilbage </Link>
 
-      <Carousel images={this.props.project.images} />
 
-      <h2>
+      <h2 className="my-2">
         { this.props.project.name }
+        <span className="mx-2"> { this.props.project.roles } </span>
       </h2>
-
-      <h4>
-        { this.props.project.roles }
-      </h4>
+      
+      <Carousel images={this.props.project.images} />
 
       {
         this.props.project.description != null

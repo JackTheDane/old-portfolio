@@ -1,17 +1,30 @@
 import React, { Component } from 'react';
 import styles from './App.module.scss';
 import Nav from '../Nav/Nav';
-import About from '../About/About';
-import { BrowserRouter, Route } from 'react-router-dom';
-import Projects from '../Projects/Projects';
-import Project from '../Project/Project';
+import { BrowserRouter } from 'react-router-dom';
 
 import ProfileImage from '../../images/profile.jpg';
+import Routes from './Routes';
+
+// Images
+import html5 from '../../images/skills/html5.jpg';
+import angular from '../../images/skills/angular.jpg';
+import cssModules from '../../images/skills/css-modules.jpg';
+import css3 from '../../images/skills/css3.jpg';
+import gulp from '../../images/skills/gulp.jpg';
+import javascript from '../../images/skills/javascript.jpg';
+import mongodb from '../../images/skills/mongodb.jpg';
+import mysql from '../../images/skills/mysql.jpg';
+import php from '../../images/skills/php.jpg';
+import react from '../../images/skills/react.jpg';
+import sass from '../../images/skills/sass.jpg';
+import wordpress from '../../images/skills/wordpress.jpg';
 
 export interface MenuItem {
   title: string;
   url: string;
   icon?: string;
+  subItems?: MenuItem[];
 }
 
 export interface IProject {
@@ -21,6 +34,11 @@ export interface IProject {
   description?: string;
   url?: string;
   images: string[];
+}
+
+export interface ISkill {
+  name: string;
+  img: string;
 }
 
 class App extends Component {
@@ -39,11 +57,7 @@ class App extends Component {
 
           <div className={styles['app__content']}>
 
-            <Route exact={true} path='/' component={About} />
-
-            <Route exact={true} path='/projekter' render={ () => <Projects projects={ this.projects } />} />
-
-            <Route exact={true} path='/projekter/:project' render={ ({match}) => <Project project={ this.projects.filter( pro => pro.urlName == match.params.project)[0]  } /> } />
+            <Routes skills={this.skills} projects={this.projects} />
 
           </div>
         </div>
@@ -52,23 +66,56 @@ class App extends Component {
     );
   }
 
-  private menuItems: MenuItem[] = [
+  private skills: ISkill[] = [
     {
-      title: 'Om mig',
-      url: '',
-      icon: 'people'
+      name: 'HTML 5',
+      img: html5
     },
     {
-      title: 'Udvalgte Projekter',
-      url: 'projekter',
-      icon: 'bookmark'
+      name: 'CSS 3',
+      img: css3
     },
     {
-      title: 'Kontakt',
-      url: 'kontakt',
-      icon: 'message'
-    }
-  ];
+      name: 'Sass',
+      img: sass
+    },
+    {
+      name: 'JavaScript ES6+',
+      img: javascript
+    },
+    {
+      name: 'ReactJS',
+      img: react
+    },
+    {
+      name: 'Angular 2+',
+      img: angular
+    },
+    {
+      name: 'Gulp',
+      img: gulp
+    },
+    {
+      name: 'CSS Modules',
+      img: cssModules
+    },
+    {
+      name: 'PHP',
+      img: php
+    },
+    {
+      name: 'MySQL',
+      img: mysql
+    },
+    {
+      name: 'WordPress',
+      img: wordpress
+    },
+    {
+      name: 'MongoDB',
+      img: mongodb
+    },
+  ]
 
   private projects: IProject[] = [
     {
@@ -110,8 +157,31 @@ class App extends Component {
         'https://picturepan2.github.io/spectre/img/osx-el-capitan.jpg',
         ProfileImage
       ]
-    },
+    }
   ];
+
+  private menuItems: MenuItem[] = [
+    {
+      title: 'Om mig',
+      url: '',
+      icon: 'people'
+    },
+    {
+      title: 'Udvalgte Projekter',
+      url: 'projekter',
+      icon: 'bookmark',
+      subItems: this.projects.map( (proj):MenuItem => ({
+        title: proj.name,
+        url: proj.urlName
+      }))
+    },
+    {
+      title: 'Kontakt',
+      url: 'kontakt',
+      icon: 'message'
+    }
+  ];
+
 }
 
 export default App;

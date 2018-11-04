@@ -1,0 +1,15 @@
+@import '../../colors';
+
+.contact {
+
+  &__form {
+    margin-bottom: 40px;
+  }
+
+  &__subcontent {
+    border-left: 4px solid $primary;
+    padding-left: 15px;
+    padding-bottom: 10px;
+    margin-bottom: 20px;
+  }
+}
