@@ -6,7 +6,7 @@ import { BrowserRouter } from 'react-router-dom';
 import ProfileImage from '../../images/profile.jpg';
 import Routes from './Routes';
 
-// Images
+// Images - Skills
 import html5 from '../../images/skills/html5.jpg';
 import angular from '../../images/skills/angular.jpg';
 import cssModules from '../../images/skills/css-modules.jpg';
@@ -19,6 +19,24 @@ import php from '../../images/skills/php.jpg';
 import react from '../../images/skills/react.jpg';
 import sass from '../../images/skills/sass.jpg';
 import wordpress from '../../images/skills/wordpress.jpg';
+
+// Images - Projects
+import dm_forside from '../../images/projekter/dentalmedia/forside.jpg';
+import dm_header from '../../images/projekter/dentalmedia/header.jpg';
+import dm_readmore from '../../images/projekter/dentalmedia/readmore.jpg';
+import dm_steps from '../../images/projekter/dentalmedia/steps.jpg';
+
+import vz_forside from '../../images/projekter/venzonxt/forside.jpg';
+import vz_breaker from '../../images/projekter/venzonxt/breaker.jpg';
+import vz_nextgen from '../../images/projekter/venzonxt/nextgen.jpg';
+import vz_understand from '../../images/projekter/venzonxt/understand.jpg';
+
+import hy_forside from '../../images/projekter/hydr/forside.jpg';
+import hy_medlemskab from '../../images/projekter/hydr/medlemskab.jpg';
+import hy_side from '../../images/projekter/hydr/side.jpg';
+
+
+
 
 export interface MenuItem {
   title: string;
@@ -124,8 +142,10 @@ class App extends Component {
       roles: 'Front end & Design',
       url: 'http://dentalmedia.io/en/',
       images: [
-        'https://picturepan2.github.io/spectre/img/osx-el-capitan.jpg',
-        ProfileImage
+        dm_header,
+        dm_forside,
+        dm_readmore,
+        dm_steps
       ]
     },
     {
@@ -134,8 +154,10 @@ class App extends Component {
       roles: 'Front end & Design',
       url: 'http://venzonxt.com/',
       images: [
-        'https://picturepan2.github.io/spectre/img/osx-el-capitan.jpg',
-        ProfileImage
+        vz_forside,
+        vz_breaker,
+        vz_nextgen,
+        vz_understand
       ]
     },
     {
@@ -144,8 +166,9 @@ class App extends Component {
       roles: 'Front end',
       url: 'http://www.hydr-esport.com/',
       images: [
-        'https://picturepan2.github.io/spectre/img/osx-el-capitan.jpg',
-        ProfileImage
+        hy_forside,
+        hy_medlemskab,
+        hy_side
       ]
     },
     {
@@ -154,8 +177,7 @@ class App extends Component {
       roles: 'Front end & Design',
       url: 'http://mbpmedia.com/bookbusiness/',
       images: [
-        'https://picturepan2.github.io/spectre/img/osx-el-capitan.jpg',
-        ProfileImage
+        'https://picturepan2.github.io/spectre/img/osx-el-capitan.jpg'
       ]
     }
   ];

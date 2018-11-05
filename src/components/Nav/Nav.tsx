@@ -30,7 +30,7 @@ class Nav extends Component<NavProps, {}> {
 
   private getListItems() {
     return this.props.menuItems.map( (item, i: number) => {
-      return <span><NavLink key={'navItem_' + i} exact={true} activeClassName={styles['menu__item--selected']} to={ `/${item.url}` } className={styles['menu__item']}>
+      return <span key={'navItem_' + i}><NavLink exact={true} activeClassName={styles['menu__item--selected']} to={ `/${item.url}` } className={styles['menu__item']}>
         <li>
           { item.icon != null ? <i className={`icon icon-${item.icon} ${styles['menu__item-icon']}`}></i> : ''}
           {item.title}
@@ -40,7 +40,7 @@ class Nav extends Component<NavProps, {}> {
       {item.subItems != null 
       ? <NavLink className={styles['menu__subitem-list']} activeClassName={styles['menu__subitem-list--selected']} to={ `/${item.url}` }> 
           <ul>
-            {item.subItems.map( item => <NavLink className={styles['menu__subitem']} activeClassName={styles['menu__subitem--selected']} to={ `/projekter/${item.url}` } >
+            {item.subItems.map( (item, i: number) => <NavLink key={'subItem_'+i} className={styles['menu__subitem']} activeClassName={styles['menu__subitem--selected']} to={ `/projekter/${item.url}` } >
               <li>
                 {item.title}
               </li>

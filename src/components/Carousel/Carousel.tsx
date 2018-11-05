@@ -10,10 +10,18 @@ export interface CarouselState {
 }
  
 class Carousel extends React.Component<CarouselProps, CarouselState> {
-  state = { currentIndex : 0 }
+  constructor(props: CarouselProps) {
+    super(props);
+    this.state = {
+      currentIndex: 0
+    }
+  }
+
   render() { 
     return (
-      <div className={styles.carousel} style={{backgroundImage: `url(${this.props.images[ this.state.currentIndex ]})`}}>
+      <div className={`${styles.carousel} card my-4`}>
+
+        {this.getImages()}
 
         <button onClick={ () => {this.changeSlide(-1)}} className={`btn ${styles['carousel__navigation-button']} ${styles['carousel__navigation-button--left']}`}>
           <i className="icon icon-arrow-left"></i>
@@ -26,26 +34,38 @@ class Carousel extends React.Component<CarouselProps, CarouselState> {
     );
   }
 
+  componentWillReceiveProps(nextProps: CarouselProps) {
+    this.setState({
+      currentIndex: 0
+    })
+  }
+
   private changeSlide(value: number) {
-    const newValue = this.state.currentIndex + (value);
+    const oldValue = this.state.currentIndex;
+    const newValue = oldValue + (value);
     const imageArrayLength = this.props.images.length;
     const lastImageIndex = imageArrayLength - 1;
 
+    let valueToUse: number;
+
     if ( newValue >= 0 && newValue <= lastImageIndex ) {
-      this.setState(prevState => ({
-        currentIndex: prevState.currentIndex + (value)
-      }))
-
+      valueToUse = newValue;
     } else if ( newValue < 0 ) {
-      this.setState({
-        currentIndex: imageArrayLength - 1
-      })
-
-    } else if ( newValue > lastImageIndex ) {
-      this.setState({
-        currentIndex: 0
-      })
+      valueToUse = imageArrayLength - 1
+    } else {
+      valueToUse = 0;
     }
+
+    this.setState({
+      currentIndex: valueToUse
+    });
+  }
+
+  private getImages() {
+    return this.props.images.map( (image, i: number) => <div 
+    key={'CarImg_'+i}
+    className={`${styles['carousel__image']} ${this.state.currentIndex === i ? styles['carousel__image--active'] : ''}`} 
+    style={{backgroundImage: `url(${ image })`}}></div> )
   }
 }
  

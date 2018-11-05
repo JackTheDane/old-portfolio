@@ -9,6 +9,7 @@ export interface ContactState {
   name: string;
   email: string;
   message: string;
+  status: any;
 }
  
 class Contact extends React.Component<ContactProps, ContactState> {
@@ -18,23 +19,24 @@ class Contact extends React.Component<ContactProps, ContactState> {
     this.state = {
       name: '',
       email: '',
-      message: ''
+      message: '',
+      status: null
     }
 
     this.handleChange = this.handleChange.bind(this);
-    this.handleSubmit = this.handleSubmit.bind(this);
   }
 
   render() { 
     return (
 
       <div>
+
         <h1>
           Kontakt mig
         </h1>
 
         <div className={styles['contact__form']}>
-          <form onSubmit={this.handleSubmit}>
+          <form method="POST" action="https://formspree.io/martin@mbpmedia.com">
             <div className="form-group columns">
               <div className="column col-6 col-xs-12">
                 <label className="form-label" htmlFor="input-name">Navn</label>
@@ -43,7 +45,7 @@ class Contact extends React.Component<ContactProps, ContactState> {
 
               <div className="column col-6 col-xs-12">
                 <label className="form-label" htmlFor="input-email">Email</label>
-                <input className="form-input" required type="text" id="input-email" name="email" placeholder="Din email addresse" value={this.state.email} onChange={this.handleChange} />
+                <input className="form-input" required type="email" id="input-email" name="email" placeholder="Din email addresse" value={this.state.email} onChange={this.handleChange} />
               </div>
             </div>
 
@@ -52,7 +54,13 @@ class Contact extends React.Component<ContactProps, ContactState> {
               <textarea className="form-input" required id="input-besked" name="message" rows={5} placeholder="Skriv en besked til mig her" value={this.state.message} onChange={this.handleChange} />
             </div>
 
-            <button type="submit" className="btn btn-primary my-2 btn-lg float-right">Send <i className="icon mx-2 icon-message"></i> </button>
+            <div className="form-group">
+              <button type="submit" className={`btn btn-primary my-2 mr-3 btn-lg ${this.state.status === 'loading' ? 'loading' : ''}`}>Send <i className="icon mx-2 icon-message"></i> </button>
+              <small>
+                Sendt via FormSpree.io
+              </small>
+            </div>
+
           </form>
         </div>
 
@@ -98,17 +106,6 @@ class Contact extends React.Component<ContactProps, ContactState> {
         message: value
       })
     }
-  }
-
-  private handleSubmit(e: any) {
-    e.preventDefault();
-    console.log('Message submitted', this.state);
-
-    this.setState({
-      name: '',
-      email: '',
-      message: ''
-    })
   }
 }
  

@@ -36,7 +36,8 @@
     // TODO: Revamp selection hover interaction
     
     font-size: 1.2rem;
-    margin-top: 15px;
+    margin-top: 10px;
+    // margin-bottom: 5px;
     
     cursor: pointer;
     user-select: none;
@@ -80,6 +81,7 @@
     text-decoration: none !important;
     display: block;
     opacity: .5;
+    pointer-events: initial;
 
     &:hover,
     &--selected {
@@ -88,12 +90,14 @@
   }
 
   &__subitem-list {
-    max-height: 0;
     display: block;
+    max-height: 0;
     overflow: hidden;
-    transition: max-height .4s .05s;
+    
     text-decoration: none !important;
-
+    pointer-events: none;
+    
+    transition: max-height .4s .05s;
 
     & > ul {
       margin-bottom: 0;

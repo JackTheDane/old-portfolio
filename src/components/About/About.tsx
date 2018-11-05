@@ -29,11 +29,11 @@ class About extends Component<AboutProps, AboutState> {
           </div>
 
           <div className={styles["about__profileTitleText"]}>
-            <h1>
+            <h1 className="mb-2 text-primary">
               Martin Bøje Petersen
             </h1>
-            <h4>
-              Front end Udvikler & IT Konsulent
+            <h4 className="text-gray">
+              Webudvikler & IT Konsulent
             </h4>
           </div>
 
@@ -43,11 +43,11 @@ class About extends Component<AboutProps, AboutState> {
         <div className={styles["about__content"]}>
 
           <div className={styles["about__subcontent"]}>
-            <h3 className={styles["about__subcontentTitle"]}>
+            <h3 className={`${styles["about__subcontentTitle"]} text-primary`}>
               Om mig
             </h3>
             <p>
-              Frontend-udvikler & IT-konsulent, bosat i Hovedstadsområdet på Sjælland. 
+              Front-end udvikler med kompetencer for backend & design. 
               Jeg har været i Web-branchen siden 2015, og har arbejdet professionelt siden maj 2017, som hhv. freelancer, deltidsansat og selvstændig. <br/>
             <br/>
               Jeg anser det som værende mit job at skabe det bedste produkt for både brugeren og evt. udviklere, der skal overtage det senere. Udvikling af webløsninger er blandt mine største passioner, og jeg stræber altid efter at forbedre mig, ved at lære nye teknologier, udfordre mine evner og følge aktivt med i relevante diskussioner og podcasts, for at holde mig selv opdateret.
@@ -56,41 +56,11 @@ class About extends Component<AboutProps, AboutState> {
 
 
           <div className={styles["about__subcontent"]}>
-            <h5 className={styles["about__subcontentTitle"]}>
+            <h5 className={`${styles["about__subcontentTitle"]} text-primary`}>
               Færdigheder
             </h5>
 
             {this.getChips()}
-          </div>
-
-          <div className={styles["about__subcontent"]}>
-            <h3>
-              Erfaring
-            </h3>
-
-            <div className="timeline">
-              <div className="timeline-item" id="timeline-example-1">
-                <div className="timeline-left">
-                  <a className="timeline-icon" href="#timeline-example-1">Link 1</a>
-                </div>
-                <div className="timeline-content">
-                  Content 1
-                </div>
-              </div>
-
-              <div className="timeline-item" id="timeline-example-2">
-                <div className="timeline-left">
-                  <a className="timeline-icon icon-lg" href="#timeline-example-2">
-                    link 2
-                    <i className="icon icon-check"></i>
-                  </a>
-                </div>
-                <div className="timeline-content">
-                  content 2
-                </div>
-              </div>
-            </div>
-
           </div>
 
         </div>

@@ -19,7 +19,7 @@ class Projects extends React.Component<ProjectsProps, ProjectsState> {
     return (
       <div>
 
-        <h2>
+        <h2 className="text-primary">
           Projekter
         </h2>
         
@@ -38,13 +38,11 @@ class Projects extends React.Component<ProjectsProps, ProjectsState> {
       (project, i: number) => <div key={'proj_' + i} className={`column col-6 col-xs-12 ${styles['projects__column']}`}>
 
         <div className="card">
-          <div className="card-image">
-            <img src={project.images[0]} className="img-responsive" />
-          </div>
+          <div className={styles['projects__image']} style={{backgroundImage: `url(${project.images[0]})`}}></div>
 
           <div className="card-header">
-            <div className="card-title h5"> {project.name} </div>
-            <div className="card-subtitle text-gray"> {project.roles} </div>
+            <div className="card-title h5 text-primary"> {project.name} <span className="text-gray ml-1">{project.roles}</span> </div>
+            {/* <div className="card-subtitle text-gray"> {project.roles} </div> */}
           </div>
 
           <div className="card-footer">
@@ -54,7 +52,7 @@ class Projects extends React.Component<ProjectsProps, ProjectsState> {
               { project.url != null 
                 ? <a href={project.url} target='_blank' rel='noopener' className="btn"> 
                   Besøg side 
-                  <i className="icon mx-2 icon-link"></i> 
+                  <i className="icon ml-2 icon-link"></i> 
                 </a> : '' }
               
             </div>

@@ -34,20 +34,19 @@
 
   &__sidebar {
     flex: 0 0 500px;
-    overflow: hidden;
-    
+    overflow-x: hidden;
   }
   
   &__content {
     margin-left: auto;
     padding: 60px 120px;
     background-color: $white;
+    overflow-y: auto;
 
     & > * {
       margin-left: auto;
       margin-right: auto;
        
-      overflow-y: auto;
       padding-left: 20px;
       padding-right: 20px;
     }

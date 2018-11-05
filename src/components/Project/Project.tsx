@@ -16,19 +16,38 @@ export interface ProjectState {
 class Project extends React.Component<ProjectProps, ProjectState> {
   constructor(props: ProjectProps) {
     super(props);
-    // this.state = { :  };
+    // this.state = { : };
   }
   render() { 
     return ( <div className={styles.project}>
-      <Link to='/projekter' className="btn btn-link btn-lg my-2"><i className="icon icon-back"></i> Tilbage </Link>
+      <div className="d-flex" style={{justifyContent: 'space-between'}}>
+        <Link to='/projekter' className="btn btn-link btn-lg pl-0"> <i className="icon icon-back"></i> Tilbage </Link>
+        <button className="btn btn-link btn-lg pr-0">
+          Zoom
+          <i className="icon icon-search ml-2"></i>
+        </button>
+      </div>
 
-
-      <h2 className="my-2">
-        { this.props.project.name }
-        <span className="mx-2"> { this.props.project.roles } </span>
-      </h2>
-      
       <Carousel images={this.props.project.images} />
+
+      <div className="d-flex mt-3" style={{justifyContent: 'space-between', alignItems: 'flex-start'}}>
+        <h2 className="text-primary mb-0">
+          { this.props.project.name }
+          <span className="mx-2 text-gray"> { this.props.project.roles } </span>
+        </h2>
+
+        { this.props.project.url != null 
+          ? <a href={this.props.project.url} target='_blank' rel='noopener' className="btn btn-primary btn-lg"> 
+            Besøg side 
+            <i className="icon ml-2 icon-link"></i> 
+          </a> 
+          : '' 
+        }
+
+      </div>
+
+
+      
 
       {
         this.props.project.description != null
@@ -36,14 +55,6 @@ class Project extends React.Component<ProjectProps, ProjectState> {
         : ''
       }
       
-      { this.props.project.url != null 
-        ? <a href={this.props.project.url} target='_blank' rel='noopener' className="btn btn-primary btn-lg"> 
-          Besøg side 
-          <i className="icon mx-2 icon-link"></i> 
-        </a> 
-        : '' 
-      }
-
     </div> );
   }
 }
