@@ -3,6 +3,7 @@ import styles from './Carousel.module.scss';
 
 export interface CarouselProps {
   images: string[];
+  className?: string;
 }
  
 export interface CarouselState {
@@ -19,7 +20,7 @@ class Carousel extends React.Component<CarouselProps, CarouselState> {
 
   render() { 
     return (
-      <div className={`${styles.carousel} card my-4`}>
+      <div className={`${styles.carousel} ${this.props.className} card my-4`}>
 
         {this.getImages()}
 

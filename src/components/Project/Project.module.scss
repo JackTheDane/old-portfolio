@@ -1,5 +1,11 @@
 @import '../../colors';
 
 .project {
-  max-width: 1000px;
+  max-width: 1200px;
+}
+
+.title {
+  & > span {
+    font-size: .75em;
+  }
 }

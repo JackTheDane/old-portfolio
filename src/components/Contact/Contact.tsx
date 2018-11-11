@@ -29,13 +29,15 @@ class Contact extends React.Component<ContactProps, ContactState> {
   render() { 
     return (
 
-      <div>
+      <div className={`content-page`}>
 
-        <h1>
+        <h1 className="transition-elem delay-0">
           Kontakt mig
         </h1>
 
-        <div className={styles['contact__form']}>
+        <div className="divider transition-elem delay-0"></div>
+
+        <div className={`mt-5 transition-elem delay-1 ${styles['contact__form']}`}>
           <form method="POST" action="https://formspree.io/martin@mbpmedia.com">
             <div className="form-group columns">
               <div className="column col-6 col-xs-12">
@@ -66,7 +68,7 @@ class Contact extends React.Component<ContactProps, ContactState> {
 
         <div className="">
 
-          <div className={`${styles['contact__subcontent']}`}>
+          <div className={`transition-elem delay-2 ${styles['contact__subcontent']}`}>
             <h4 className=''>
               Email
             </h4>
@@ -75,7 +77,7 @@ class Contact extends React.Component<ContactProps, ContactState> {
             </a>
           </div>
 
-          <div className={`${styles['contact__subcontent']}`}>
+          <div className={`transition-elem delay-3 ${styles['contact__subcontent']}`}>
             <h4 className=''>
               Telefon
             </h4>

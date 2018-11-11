@@ -17,20 +17,20 @@ class About extends Component<AboutProps, AboutState> {
   render() {
 
     return (
-      <div className={styles.about}>
+      <div className={`content-page ${styles.about}`}>
         <div className={styles["about__profile"]}>
 
-          <div>
+          <div className="transition-elem delay-0">
             <div className={styles['about__profileImageWrapper']}>
               <img className={styles['about__profileImage']} src={ProfileImage} alt="Martin Bøje Petersen"/>
             </div>
           </div>
 
-          <div className={styles["about__profileTitleText"]}>
+          <div className={`transition-elem delay-1 ${styles["about__profileTitleText"]}`}>
             <h1 className="mb-2 text-primary">
               Martin Bøje Petersen
             </h1>
-            <h4 className="text-gray">
+            <h4 className="text-gray fw-medium">
               Webudvikler & IT Konsulent
             </h4>
           </div>
@@ -38,7 +38,7 @@ class About extends Component<AboutProps, AboutState> {
 
         <div className={styles["about__content"]}>
 
-          <div className={styles["about__subcontent"]}>
+          <div className={`transition-elem delay-2 ${styles["about__subcontent"]}`}>
             <h3 className={`${styles["about__subcontentTitle"]} text-primary`}>
               Om mig
             </h3>
@@ -51,7 +51,7 @@ class About extends Component<AboutProps, AboutState> {
           </div>
 
 
-          <div className={styles["about__subcontent"]}>
+          <div className={`transition-elem delay-3 ${styles["about__subcontent"]}`}>
             <h5 className={`${styles["about__subcontentTitle"]} text-primary`}>
               Færdigheder
             </h5>

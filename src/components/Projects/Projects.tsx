@@ -17,13 +17,15 @@ export interface ProjectsState {
 class Projects extends React.Component<ProjectsProps, ProjectsState> {
   render() { 
     return (
-      <div>
+      <div className={`content-page`}>
 
-        <h2 className="text-primary">
+        <h2 className="transition-elem delay-0 text-primary">
           Projekter
         </h2>
+
+        <div className="divider transition-elem delay-0"></div>
         
-        <div className="columns">
+        <div className={`${styles['projects__columns']} columns`}>
 
           {this.getProjectCards()}        
 
@@ -35,14 +37,13 @@ class Projects extends React.Component<ProjectsProps, ProjectsState> {
   private getProjectCards() {
     return this.props.projects.map( 
 
-      (project, i: number) => <div key={'proj_' + i} className={`column col-6 col-xs-12 ${styles['projects__column']}`}>
+      (project, i: number) => <div key={'proj_' + i} className={`column col-6 col-xs-12 transition-elem delay-${i + 1} ${styles['projects__column']}`}>
 
         <div className="card">
           <div className={styles['projects__image']} style={{backgroundImage: `url(${project.images[0]})`}}></div>
 
           <div className="card-header">
-            <div className="card-title h5 text-primary"> {project.name} <span className="text-gray ml-1">{project.roles}</span> </div>
-            {/* <div className="card-subtitle text-gray"> {project.roles} </div> */}
+            <div className="card-title h5 text-primary"> {project.name} <span className="text-gray fw-medium ml-1">{project.roles}</span> </div>
           </div>
 
           <div className="card-footer">

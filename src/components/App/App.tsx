@@ -19,6 +19,7 @@ import php from '../../images/skills/php.jpg';
 import react from '../../images/skills/react.jpg';
 import sass from '../../images/skills/sass.jpg';
 import wordpress from '../../images/skills/wordpress.jpg';
+import typescript from '../../images/skills/typescript.jpg';
 
 // Images - Projects
 import dm_forside from '../../images/projekter/dentalmedia/forside.jpg';
@@ -34,6 +35,12 @@ import vz_understand from '../../images/projekter/venzonxt/understand.jpg';
 import hy_forside from '../../images/projekter/hydr/forside.jpg';
 import hy_medlemskab from '../../images/projekter/hydr/medlemskab.jpg';
 import hy_side from '../../images/projekter/hydr/side.jpg';
+
+import bb_forside from '../../images/projekter/bookbusiness/forside.jpg';
+import bb_search from '../../images/projekter/bookbusiness/search.jpg';
+
+// Images - Bg
+import backgroundImage_1920 from '../../images/bg-1920.jpg';
 
 
 export interface MenuItem {
@@ -64,6 +71,7 @@ export interface ISkills {
   js: ISkill;
   react: ISkill;
   angular: ISkill;
+  typescript: ISkill;
   gulp: ISkill;
   cssModules: ISkill;
   php: ISkill;
@@ -81,7 +89,7 @@ class App extends Component {
     return (
       <BrowserRouter>
 
-        <div className={styles.app}>
+        <div className={styles.app} style={{backgroundImage: `url(${backgroundImage_1920})`}}>
           <div className={styles['app__sidebar']}>
             
             <Nav menuItems={this.menuItems} />
@@ -124,6 +132,10 @@ class App extends Component {
       name: 'Angular 2+',
       img: angular
     },
+    typescript: {
+      name: 'Typescript',
+      img: typescript
+    },
     gulp: {
       name: 'Gulp',
       img: gulp
@@ -161,10 +173,14 @@ class App extends Component {
         dm_forside,
         dm_readmore,
         dm_steps
-      ]
+      ],
+      description: `Dental Media ApS er et marketingbureau og software udbyder, der hjælper tandlæger verden over med at få flere kunder i klinikken.
+      I efteråret 2017 fik jeg til opgave at lave et nyt WordPress site til virksomheden, der var enkelt, luftigt og føltes levende, med kun en basal prototype af forsiden som udgangspunkt.
+      Mine opgaver i projektet var at udarbejde et design og implementerer det gennem brug af page-builder temaet “Avada”.
+      `
     },
     {
-      name: 'VENZO.NXT',
+      name: 'VENZO.nxt',
       urlName: 'venzo-nxt',
       roles: 'Front end & Design',
       url: 'http://venzonxt.com/',
@@ -173,10 +189,16 @@ class App extends Component {
         vz_breaker,
         vz_nextgen,
         vz_understand
-      ]
+      ],
+      description: `VENZO.nxt, et datterselskab til VENZO a/s, er et IT selskab der specialiserer sig i Cloud og AI løsninger til datahåndtering og analysering. 
+
+      Som et nyt selskab, havde VENZO.nxt ingen branding eller hjemmeside selv, andet end fra deres hovedselskab. Min del af projektet fokuserede primært på den tekniske opsætning af siden, samt implementering af vores mobile-first responsive design og efterfølgende support og videreudvikling. 
+      
+      Siden kører på WordPress, med et custom tema og bruger Advanced Custom Fields til implementering af tekst, billeder og videoer på siden.
+      `
     },
     {
-      name: 'Hydr Esport',
+      name: 'Hydr eSport',
       urlName: 'hydr-esport',
       roles: 'Front end',
       url: 'http://www.hydr-esport.com/',
@@ -184,7 +206,13 @@ class App extends Component {
         hy_forside,
         hy_medlemskab,
         hy_side
-      ]
+      ],
+      description: `Hydr eSport er en virksomhed, der tilbyder træning inden for Esport af alle slags, i alle niveauer. 
+
+      Hydr eSports hjemmeside var oprindeligt lavet som et eksamensprojekt af en tredjepart. Jeg blev hyret til at opdatere og strømline siden både visuelt og teknisk. Mit fokus for projektet har været at udvikle nye features og templates, der skulle være brugervenlige nok til at kunne overtages og bruges af virksomheden selv, uden krav for teknisk kunnen.
+      
+      Siden er bygget på et custom tema i WordPress og gør brug af bl.a. “Custom Post Types” og “Advanced Custom Fields”.
+      `
     },
     {
       name: 'Book Business',
@@ -192,8 +220,13 @@ class App extends Component {
       roles: 'Front end & Design',
       url: 'http://mbpmedia.com/bookbusiness/',
       images: [
-        'https://picturepan2.github.io/spectre/img/osx-el-capitan.jpg'
-      ]
+        bb_forside,
+        bb_search
+      ],
+      description: `I efteråret 2017 blev en studiekammerat og jeg bedt om at udarbejde en prototype til en flybooking applikation i forbindelse med et skoleprojekt. Min hovedopgave i projektet var design og implementering af forsiden og søgebaren for prototypen.
+
+      Prototypen er lavet gennem brug af CSS frameworket “Bootstrap” og almindelig JavaScript.
+      `
     }
   ];
 

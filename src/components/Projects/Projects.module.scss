@@ -1,8 +1,14 @@
 @import '../../colors';
 
 .projects {
+  &__columns {
+    margin-left: -10px;
+    margin-right: -10px;
+  }
+
   &__column {
-    padding: 14px;
+    padding: 10px;
+    
   }
 
   &__image {
