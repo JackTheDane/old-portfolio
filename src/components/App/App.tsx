@@ -36,8 +36,6 @@ import hy_medlemskab from '../../images/projekter/hydr/medlemskab.jpg';
 import hy_side from '../../images/projekter/hydr/side.jpg';
 
 
-
-
 export interface MenuItem {
   title: string;
   url: string;
@@ -58,6 +56,23 @@ export interface ISkill {
   name: string;
   img: string;
 }
+
+export interface ISkills {
+  html5: ISkill;
+  css3: ISkill;
+  sass: ISkill;
+  js: ISkill;
+  react: ISkill;
+  angular: ISkill;
+  gulp: ISkill;
+  cssModules: ISkill;
+  php: ISkill;
+  mysql: ISkill;
+  wp: ISkill;
+  mongodb: ISkill;
+  [key: string]: ISkill;
+}
+
 
 class App extends Component {
 
@@ -84,56 +99,56 @@ class App extends Component {
     );
   }
 
-  private skills: ISkill[] = [
-    {
+  private skills = {
+    html5: {
       name: 'HTML 5',
       img: html5
     },
-    {
+    css3: {
       name: 'CSS 3',
       img: css3
     },
-    {
+    sass: {
       name: 'Sass',
       img: sass
     },
-    {
+    js: {
       name: 'JavaScript ES6+',
       img: javascript
     },
-    {
+    react: {
       name: 'ReactJS',
       img: react
     },
-    {
+    angular: {
       name: 'Angular 2+',
       img: angular
     },
-    {
+    gulp: {
       name: 'Gulp',
       img: gulp
     },
-    {
+    cssModules: {
       name: 'CSS Modules',
       img: cssModules
     },
-    {
+    php: {
       name: 'PHP',
       img: php
     },
-    {
+    mysql: {
       name: 'MySQL',
       img: mysql
     },
-    {
+    wp: {
       name: 'WordPress',
       img: wordpress
     },
-    {
+    mongodb: {
       name: 'MongoDB',
       img: mongodb
-    },
-  ]
+    }
+  }
 
   private projects: IProject[] = [
     {

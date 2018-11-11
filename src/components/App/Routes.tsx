@@ -6,11 +6,11 @@ import Projects from '../Projects/Projects';
 import Project from '../Project/Project';
 import Contact from '../Contact/Contact';
 
-import { IProject, ISkill } from './App';
+import { IProject, ISkill, ISkills } from './App';
 
 export interface RoutesProps {
   projects: IProject[];
-  skills: ISkill[];
+  skills: ISkills;
 }
  
 class Routes extends React.Component<RoutesProps, {}> {

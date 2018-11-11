@@ -1,12 +1,12 @@
 import * as React from 'react';
 import { Component } from 'react';
 import styles from './About.module.scss';
-import { ISkill } from '../App/App';
+import { ISkill, ISkills } from '../App/App';
 
 import ProfileImage from '../../images/profile.jpg';
 
 export interface AboutProps {
-  skills: ISkill[];
+  skills: ISkills;
 }
  
 export interface AboutState {
@@ -14,12 +14,10 @@ export interface AboutState {
 }
  
 class About extends Component<AboutProps, AboutState> {
-  // state = { :  }
   render() {
 
     return (
       <div className={styles.about}>
-
         <div className={styles["about__profile"]}>
 
           <div>
@@ -36,9 +34,7 @@ class About extends Component<AboutProps, AboutState> {
               Webudvikler & IT Konsulent
             </h4>
           </div>
-
         </div>
-        {/* <hr/> */}
 
         <div className={styles["about__content"]}>
 
@@ -69,12 +65,22 @@ class About extends Component<AboutProps, AboutState> {
   }
 
   private getChips() {
-    return this.props.skills.map( (skill, i: number) => {
-      return <div className="chip m-2" key={'skill_' + i}>
-        <img src={skill.img} className="avatar"/>
-        {skill.name}
-      </div>
-    })
+    const skillsArray = [];
+    const skills = this.props.skills;
+
+    for (var key in skills) {
+      if (skills.hasOwnProperty(key)) {
+        const skill = skills[key];
+
+        skillsArray.push(<div className="chip m-2" key={'skill_' + skill.name}>
+          <img src={skill.img} className="avatar"/>
+          {skill.name}
+        </div>);
+      }
+    }
+
+    return skillsArray;
+
   }
 }
  
