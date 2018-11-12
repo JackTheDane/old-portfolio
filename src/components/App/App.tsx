@@ -190,7 +190,7 @@ class App extends Component {
         vz_nextgen,
         vz_understand
       ],
-      description: `VENZO.nxt, et datterselskab til VENZO a/s, er et IT selskab der specialiserer sig i Cloud og AI løsninger til datahåndtering og analysering. 
+      description: `VENZO.nxt, et datterselskab til VENZO A/S, er et IT selskab der specialiserer sig i Cloud og AI løsninger til datahåndtering og analysering. 
 
       Som et nyt selskab, havde VENZO.nxt ingen branding eller hjemmeside selv, andet end fra deres hovedselskab. Min del af projektet fokuserede primært på den tekniske opsætning af siden, samt implementering af vores mobile-first responsive design og efterfølgende support og videreudvikling. 
       

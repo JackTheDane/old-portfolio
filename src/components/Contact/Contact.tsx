@@ -37,7 +37,7 @@ class Contact extends React.Component<ContactProps, ContactState> {
 
         <div className="divider transition-elem delay-0"></div>
 
-        <div className={`mt-5 transition-elem delay-1 ${styles['contact__form']}`}>
+        <div className={`my-5 transition-elem delay-1 ${styles['contact__form']}`}>
           <form method="POST" action="https://formspree.io/martin@mbpmedia.com">
             <div className="form-group columns">
               <div className="column col-6 col-xs-12">
@@ -64,6 +64,7 @@ class Contact extends React.Component<ContactProps, ContactState> {
             </div>
 
           </form>
+
         </div>
 
         <div className="">
