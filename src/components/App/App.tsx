@@ -54,8 +54,9 @@ export interface IProject {
   name: string;
   urlName: string;
   roles: string;
-  description?: string;
+  description?: string[];
   url?: string;
+  skillsUsed: ISkill[];
   images: string[];
 }
 
@@ -174,10 +175,20 @@ class App extends Component {
         dm_readmore,
         dm_steps
       ],
-      description: `Dental Media ApS er et marketingbureau og software udbyder, der hjælper tandlæger verden over med at få flere kunder i klinikken.
-      I efteråret 2017 fik jeg til opgave at lave et nyt WordPress site til virksomheden, der var enkelt, luftigt og føltes levende, med kun en basal prototype af forsiden som udgangspunkt.
-      Mine opgaver i projektet var at udarbejde et design og implementerer det gennem brug af page-builder temaet “Avada”.
-      `
+      skillsUsed: [
+        this.skills.html5,
+        this.skills.css3,
+        this.skills.js,
+        this.skills.sass,
+        this.skills.gulp,
+        this.skills.php,
+        this.skills.wp
+      ],
+      description: [
+        "Dental Media ApS er et marketingbureau og software udbyder, der hjælper tandlæger verden over med at få flere kunder i klinikken.", 
+        "I efteråret 2017 fik jeg til opgave at lave et nyt WordPress site til virksomheden, der var enkelt, luftigt og føltes levende, med kun en basal prototype af forsiden som udgangspunkt.",
+        "Mine opgaver i projektet var at udarbejde et design og implementerer det gennem brug af page-builder temaet “Avada”."
+      ]
     },
     {
       name: 'VENZO.nxt',
@@ -190,12 +201,18 @@ class App extends Component {
         vz_nextgen,
         vz_understand
       ],
-      description: `VENZO.nxt, et datterselskab til VENZO A/S, er et IT selskab der specialiserer sig i Cloud og AI løsninger til datahåndtering og analysering. 
-
-      Som et nyt selskab, havde VENZO.nxt ingen branding eller hjemmeside selv, andet end fra deres hovedselskab. Min del af projektet fokuserede primært på den tekniske opsætning af siden, samt implementering af vores mobile-first responsive design og efterfølgende support og videreudvikling. 
-      
-      Siden kører på WordPress, med et custom tema og bruger Advanced Custom Fields til implementering af tekst, billeder og videoer på siden.
-      `
+      skillsUsed: [
+        this.skills.html5,
+        this.skills.css3,
+        this.skills.js,
+        this.skills.sass,
+        this.skills.php,
+        this.skills.wp
+      ],
+      description: [
+        "VENZO.nxt, et datterselskab til VENZO A/S, er et IT selskab der specialiserer sig i Cloud og AI løsninger til datahåndtering og analysering.",
+        "Som et nyt selskab, havde VENZO.nxt ingen branding eller hjemmeside selv, andet end fra deres hovedselskab. Min del af projektet fokuserede primært på den tekniske opsætning af siden, samt implementering af vores mobile-first responsive design og efterfølgende support og videreudvikling. Siden kører på WordPress, med et custom tema og bruger Advanced Custom Fields til implementering af tekst, billeder og videoer på siden."
+      ]
     },
     {
       name: 'Hydr eSport',
@@ -207,12 +224,19 @@ class App extends Component {
         hy_medlemskab,
         hy_side
       ],
-      description: `Hydr eSport er en virksomhed, der tilbyder træning inden for Esport af alle slags, i alle niveauer. 
-
-      Hydr eSports hjemmeside var oprindeligt lavet som et eksamensprojekt af en tredjepart. Jeg blev hyret til at opdatere og strømline siden både visuelt og teknisk. Mit fokus for projektet har været at udvikle nye features og templates, der skulle være brugervenlige nok til at kunne overtages og bruges af virksomheden selv, uden krav for teknisk kunnen.
-      
-      Siden er bygget på et custom tema i WordPress og gør brug af bl.a. “Custom Post Types” og “Advanced Custom Fields”.
-      `
+      skillsUsed: [
+        this.skills.html5,
+        this.skills.css3,
+        this.skills.js,
+        this.skills.sass,
+        this.skills.gulp,
+        this.skills.php,
+        this.skills.wp
+      ],
+      description: [
+        "Hydr eSport er en virksomhed, der tilbyder træning inden for Esport af alle slags, i alle niveauer.",
+        'Hydr eSports hjemmeside var oprindeligt lavet som et eksamensprojekt af en tredjepart. Jeg blev hyret til at opdatere og strømline siden både visuelt og teknisk. Mit fokus for projektet har været at udvikle nye features og templates, der skulle være brugervenlige nok til at kunne overtages og bruges af virksomheden selv, uden krav for teknisk kunnen. Siden er bygget på et custom tema i WordPress og gør brug af bl.a. “Custom Post Types” og “Advanced Custom Fields”.'
+      ]
     },
     {
       name: 'Book Business',
@@ -223,10 +247,17 @@ class App extends Component {
         bb_forside,
         bb_search
       ],
-      description: `I efteråret 2017 blev en studiekammerat og jeg bedt om at udarbejde en prototype til en flybooking applikation i forbindelse med et skoleprojekt. Min hovedopgave i projektet var design og implementering af forsiden og søgebaren for prototypen.
-
-      Prototypen er lavet gennem brug af CSS frameworket “Bootstrap” og almindelig JavaScript.
-      `
+      skillsUsed: [
+        this.skills.html5,
+        this.skills.css3,
+        this.skills.js,
+        this.skills.sass,
+        this.skills.gulp
+      ],
+      description: [
+        "I efteråret 2017 blev en studiekammerat og jeg bedt om at udarbejde en prototype til en flybooking applikation i forbindelse med et skoleprojekt. Min hovedopgave i projektet var design og implementering af forsiden og søgebaren for prototypen.",
+        'Prototypen er lavet gennem brug af CSS frameworket “Bootstrap” og almindelig JavaScript.'
+      ]
     }
   ];
 

@@ -37,10 +37,13 @@ class Projects extends React.Component<ProjectsProps, ProjectsState> {
   private getProjectCards() {
     return this.props.projects.map( 
 
-      (project, i: number) => <div key={'proj_' + i} className={`column col-6 col-xs-12 transition-elem delay-${i + 1} ${styles['projects__column']}`}>
+      (project, i: number) => <div key={'proj_' + i} className={`column col-6 col-md-12 transition-elem delay-${i + 1} ${styles['projects__column']}`}>
 
         <div className="card">
-          <div className={styles['projects__image']} style={{backgroundImage: `url(${project.images[0]})`}}></div>
+
+          <div className={styles['projects__image-wrapper']}>
+            <div className={styles['projects__image']} style={{backgroundImage: `url(${project.images[0]})`}}></div>
+          </div>
 
           <div className="card-header">
             <div className="card-title h5 text-primary"> {project.name} <span className="text-gray fw-medium ml-1">{project.roles}</span> </div>

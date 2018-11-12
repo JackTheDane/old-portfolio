@@ -1,15 +1,5 @@
 @import './spectre/spectre.scss';
 
-// body {
-//   margin: 0;
-//   padding: 0;
-//   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
-//     "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
-//     sans-serif;
-//   -webkit-font-smoothing: antialiased;
-//   -moz-osx-font-smoothing: grayscale;
-// }
-
 html, body, #root {
   height: 100%;
 }
@@ -138,7 +128,19 @@ $translateAmount: 80px;
 
   height: 100%;
 
-  padding: 60px 120px;
-
+  padding: 15px;
+  
   overflow-y: auto;
+}
+
+@media (min-width: 600px) {
+  .content-page {
+    padding: 30px 45px;
+  }
+}
+
+@media (min-width: 1200px) {
+  .content-page {
+    padding: 60px 120px;
+  }
 }

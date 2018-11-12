@@ -8,7 +8,7 @@ import Contact from '../Contact/Contact';
 
 import { CSSTransition, TransitionGroup } from "react-transition-group";
 
-import { IProject, ISkill, ISkills } from './App';
+import { IProject, ISkills } from './App';
 
 export interface RoutesProps {
   projects: IProject[];

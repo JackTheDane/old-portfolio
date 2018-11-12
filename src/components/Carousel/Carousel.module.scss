@@ -44,8 +44,6 @@
     font-size: 20px;
     z-index: 5;
     
-    opacity: 0;
-
     &::before {
       content: '';
       height: 100%;
@@ -59,12 +57,6 @@
       transition: opacity .2s;
     }
 
-    &:hover {
-      &::before {
-        opacity: 1;
-      }
-    }
-    
     &--left {
       
       &,
@@ -100,6 +92,20 @@
   &:hover {
     .carousel__navigation-button {
       opacity: 1;
+    }
+  }
+}
+
+@media (min-width: 1200px) {
+  .carousel {
+    &__navigation-button {
+      opacity: 0;
+
+      &:hover {
+        &::before {
+          opacity: 1;
+        }
+      }
     }
   }
 }

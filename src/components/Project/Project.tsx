@@ -2,7 +2,7 @@ import React from 'react';
 import styles from './Project.module.scss';
 import Carousel from '../Carousel/Carousel';
 
-import { IProject } from '../App/App';
+import { IProject, ISkill } from '../App/App';
 import { Link } from 'react-router-dom';
 
 export interface ProjectProps {
@@ -41,14 +41,41 @@ class Project extends React.Component<ProjectProps, ProjectState> {
       </div>
 
       <div className="divider transition-elem delay-2 my-3"></div>
+      
+      <div className="transition-elem delay-3">
+        {
+          this.getDescription()
+        }
+      </div>
 
       {
-        this.props.project.description != null
-        ? <p className="transition-elem delay-3"> {this.props.project.description} </p>
+        this.props.project.skillsUsed != null
+          ? <div className={`transition-elem delay-4 mt-5 ${styles.subcontent}`}>
+          <h5 className={`${styles["about__subcontentTitle"]} text-primary`}>
+            Færdigheder
+          </h5>
+
+          {this.getChips()}
+        </div>
         : ''
       }
       
     </div> );
+  }
+
+  private getDescription() {
+    const description = this.props.project.description != null
+      ? this.props.project.description.map( text => <p style={{marginBottom: '1em'}}> {text} </p> )
+      : ''
+
+    return description;
+  }
+
+  private getChips() {
+    return this.props.project.skillsUsed.map( skill => <div className="chip m-2" key={'skill_' + skill.name}>
+      <img src={skill.img} className="avatar"/>
+      {skill.name}
+    </div> )
   }
 }
  

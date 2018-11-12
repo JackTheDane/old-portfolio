@@ -16,19 +16,41 @@
   background-blend-mode: multiply;
 
   &__sidebar {
-    flex: 0 0 500px;
-    overflow-x: hidden;
+    display: none;
   }
   
   &__content {
     margin-left: auto;
+    margin-right: auto;
     background-color: $white;
     position: relative;
-
+    
+    max-width: 1000px;
+    
     width: 100%;
     height: 100%;
     position: relative;
+  }
+}
 
-    margin-right: 10%;
+@media (min-width: 1200px) {
+  .app {
+    &__sidebar {
+      flex: 0 1 500px;
+      overflow-x: hidden;
+      display: block;
+    }
+  }
+}
+
+@media (min-width: 1680px) {
+  .app {
+    // &__sidebar {
+    //   flex: 0 0 500px;
+    // }
+
+    // &__content {
+    //   margin-right: 10%;
+    // }
   }
 }
