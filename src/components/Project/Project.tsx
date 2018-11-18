@@ -2,7 +2,7 @@ import React from 'react';
 import styles from './Project.module.scss';
 import Carousel from '../Carousel/Carousel';
 
-import { IProject, ISkill } from '../App/App';
+import { IProject } from '../App/App';
 import { Link } from 'react-router-dom';
 
 export interface ProjectProps {
@@ -20,7 +20,7 @@ class Project extends React.Component<ProjectProps, ProjectState> {
   }
   render() { 
     return ( <div className={`content-page ${styles.project}`}>
-      <Link to='/projekter' className="btn btn-link btn-lg pl-0 transition-elem delay-0"> <i className="icon icon-back"></i> Tilbage </Link>
+      <Link to='/projekter' className="btn btn-link btn-lg pl-0 transition-elem delay-0"> <i className="icon icon-back"></i> Andre projekter </Link>
 
       <Carousel className={"transition-elem delay-1"} images={this.props.project.images} />
 
@@ -65,7 +65,7 @@ class Project extends React.Component<ProjectProps, ProjectState> {
 
   private getDescription() {
     const description = this.props.project.description != null
-      ? this.props.project.description.map( text => <p style={{marginBottom: '1em'}}> {text} </p> )
+      ? this.props.project.description.map( (text, i) => <p key={`projInf-${i}`} style={{marginBottom: '1em'}}> {text} </p> )
       : ''
 
     return description;

@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import styles from './Nav.module.scss';
-import Logo from '../../images/mainLogo-white.png';
+import LogoAndText from '../../images/mainLogo-white.png';
+import Logo from '../../images/mainLogoOnly-white.png';
 import { Link, NavLink } from 'react-router-dom';
 
 import { MenuItem } from '../App/App';
@@ -9,17 +10,31 @@ export interface NavProps {
   menuItems: MenuItem[];
 }
 
-class Nav extends Component<NavProps, {}> {
+export interface NavState {
+  isMobileMenuVisible: boolean;
+  windowWidth: number;
+}
+
+class Nav extends Component<NavProps, NavState> {
+
+  constructor(props: NavProps) {
+    super(props);
+    this.state = { 
+      isMobileMenuVisible: false,
+      windowWidth: 0
+    };
+  }
 
   render() {
 
     return (
-      <nav className={styles.nav}>
-        <Link to={'/'} className={styles['nav__logo']}>
-          <img src={Logo} alt="MBP Media"/>
-        </Link>
+      <nav className={`${styles.nav} ${this.state.isMobileMenuVisible ? styles['nav--shown'] : ''}`}>
+        
 
-        <ul className={styles['menu']}>
+        {this.getNavLogoSection()}
+
+
+        <ul className={`${styles['menu']} ${ this.state.isMobileMenuVisible ? styles['menu--shown'] : '' }`}>
 
          { this.getListItems() }         
 
@@ -28,9 +43,46 @@ class Nav extends Component<NavProps, {}> {
     );
   }
 
+  componentDidMount() {
+    this.updateWindowWidth();
+    window.addEventListener('resize', () => this.updateWindowWidth());
+  }
+  
+  componentWillUnmount() {
+    window.removeEventListener('resize', () => this.updateWindowWidth());
+  }
+  
+  updateWindowWidth() {
+    this.setState({ windowWidth: window.innerWidth });
+  }
+
+  public setMobileMenuDisplay(shouldShow: boolean) {
+    this.setState({
+      isMobileMenuVisible: shouldShow
+    })
+  }
+
+  private getNavLogoSection() {
+    return this.state.windowWidth >= 1200
+      ? <Link to={'/'} className={styles['nav__logo']}>
+          <img src={LogoAndText} className="img-fit-contain" alt="MBP Media"/>
+        </Link>
+      : <div className={styles['nav__mobileMenu']}>
+          <Link onClick={ () => this.setMobileMenuDisplay(false) } to={'/'} className={styles['nav__logo--mobile']}>
+            <img src={Logo} className="img-fit-contain" alt="MBP Media"/>
+          </Link>
+          <button onClick={ () => this.setMobileMenuDisplay(!this.state.isMobileMenuVisible) } className="btn btn-lg btn-primary">
+            <i className={`icon ${ this.state.isMobileMenuVisible ? 'icon-cross' : 'icon-menu' } mr-2`}></i>
+            { this.state.isMobileMenuVisible
+              ? 'Close'
+              : 'Menu' }
+          </button>
+        </div>
+  }
+
   private getListItems() {
     return this.props.menuItems.map( (item, i: number) => {
-      return <span key={'navItem_' + i} className={styles['menu__item-wrapper']} ><NavLink exact={true} activeClassName={styles['menu__item--selected']} to={ `/${item.url}` } className={styles['menu__item']}>
+      return <span key={'navItem_' + i} className={styles['menu__item-wrapper']} ><NavLink onClick={ () => this.setMobileMenuDisplay(false) } exact={item.isExact ? true : false} activeClassName={styles['menu__item--selected']} to={ `/${item.url}` } className={styles['menu__item']}>
         <li>
           { item.icon != null ? <i className={`icon icon-${item.icon} ${styles['menu__item-icon']}`}></i> : ''}
           {item.title}
@@ -38,15 +90,13 @@ class Nav extends Component<NavProps, {}> {
 
       </NavLink>
       {item.subItems != null 
-      ? <NavLink className={styles['menu__subitem-list']} activeClassName={styles['menu__subitem-list--selected']} to={ `/${item.url}` }> 
-          <ul>
-            {item.subItems.map( (item, i: number) => <NavLink key={'subItem_'+i} className={styles['menu__subitem']} activeClassName={styles['menu__subitem--selected']} to={ `/projekter/${item.url}` } >
+      ? <ul className={styles['menu__subitem-list']}>
+            {item.subItems.map( (item, i: number) => <NavLink key={'subItem_'+i} onClick={ () => this.setMobileMenuDisplay(false) } className={styles['menu__subitem']} activeClassName={styles['menu__subitem--selected']} to={ `/projekter/${item.url}` } >
               <li>
                 {item.title}
               </li>
             </NavLink> )}
           </ul>
-        </NavLink>
       : ''}
       </span>
     })

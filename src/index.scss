@@ -60,14 +60,15 @@ $translateAmount: 80px;
 .fade {
   &-appear,
   &-enter {
-    z-index: 1;
-
+    overflow-y: hidden;
+    
     .transition-elem {
       opacity: 0;
       transform: translateZ(0) translateY($translateAmount);
     }
     
     &-active {
+      z-index: 1;
       .transition-elem {
         opacity: 1;
         transform: translateZ(0) translateY(0px);
@@ -87,7 +88,7 @@ $translateAmount: 80px;
         
         @for $i from 0 through 6 {
           &.delay-#{$i}{
-            transition-delay: $transitionSpeed/2 + $transitionStagger + $transitionStagger * $i;
+            transition-delay: $transitionSpeed/2 + $transitionStagger * ($i+1);
           }
         }
       }
@@ -101,7 +102,7 @@ $translateAmount: 80px;
         
         @for $i from 0 through 6 {
           &.delay-#{$i}{
-            transition-delay: $transitionStagger * $i;
+            transition-delay: $transitionStagger * $i + 300ms;
           }
         }
       }
@@ -149,14 +150,14 @@ $translateAmount: 80px;
 
   height: 100%;
 
-  padding: 15px;
+  padding: 90px 25px 30px;
   
   overflow-y: auto;
 }
 
 @media (min-width: 600px) {
   .content-page {
-    padding: 30px 45px;
+    padding: 90px 45px 30px;
   }
 }
 

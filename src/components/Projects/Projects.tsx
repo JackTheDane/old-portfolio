@@ -19,9 +19,9 @@ class Projects extends React.Component<ProjectsProps, ProjectsState> {
     return (
       <div className={`content-page`}>
 
-        <h2 className="transition-elem delay-0 text-primary">
-          Projekter
-        </h2>
+        <h1 className="transition-elem delay-0 text-primary">
+          Udvalgte Projekter
+        </h1>
 
         <div className="divider transition-elem delay-0"></div>
         
@@ -46,15 +46,15 @@ class Projects extends React.Component<ProjectsProps, ProjectsState> {
           </div>
 
           <div className="card-header">
-            <div className="card-title h5 text-primary"> {project.name} <span className="text-gray fw-medium ml-1">{project.roles}</span> </div>
+            <div className="card-title h4 text-primary"> {project.name} <span className="text-gray fw-medium ml-1">{project.roles}</span> </div>
           </div>
 
           <div className="card-footer">
             <div className="btn-group btn-group-block">
-              <Link to={'/projekter/' + project.urlName} className="btn btn-primary"> Vis projekt </Link>
+              <Link to={'/projekter/' + project.urlName} className="btn btn-primary btn-lg"> Vis projekt </Link>
 
               { project.url != null 
-                ? <a href={project.url} target='_blank' rel='noopener' className="btn"> 
+                ? <a href={project.url} target='_blank' rel='noopener' className="btn btn-lg"> 
                   Besøg side 
                   <i className="icon ml-2 icon-link"></i> 
                 </a> : '' }

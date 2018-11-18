@@ -1,9 +1,8 @@
 import React, { Component } from 'react';
 import styles from './App.module.scss';
 import Nav from '../Nav/Nav';
-import { BrowserRouter } from 'react-router-dom';
+import { BrowserRouter, Route, Switch } from 'react-router-dom';
 
-import ProfileImage from '../../images/profile.jpg';
 import Routes from './Routes';
 
 // Images - Skills
@@ -42,12 +41,19 @@ import bb_search from '../../images/projekter/bookbusiness/search.jpg';
 // Images - Bg
 import backgroundImage_1920 from '../../images/bg-1920.jpg';
 
+import { TransitionGroup, CSSTransition } from 'react-transition-group';
+import About from '../About/About';
+import Projects from '../Projects/Projects';
+import Project from '../Project/Project';
+import Contact from '../Contact/Contact';
+
 
 export interface MenuItem {
   title: string;
   url: string;
   icon?: string;
   subItems?: MenuItem[];
+  isExact?: boolean;
 }
 
 export interface IProject {
@@ -91,13 +97,33 @@ class App extends Component {
       <BrowserRouter>
 
         <div className={styles.app} style={{backgroundImage: `url(${backgroundImage_1920})`}}>
-          <div className={styles['app__sidebar']}>
+          {/* <div className={styles['app__sidebar']}> */}
             
             <Nav menuItems={this.menuItems} />
 
-          </div>
+          {/* </div> */}
 
           <div className={styles['app__content']}>
+
+          <Route render={({location}) => (
+              <TransitionGroup appear={true}>
+                <CSSTransition
+                  key={location.key}
+                  timeout={1500}
+                  classNames="fade"
+                >
+                  <Switch location={location}>
+                    <Route exact={true} path='/' render={ () => <About skills={ this.skills } /> } />
+
+                    <Route exact={true} path='/projekter' render={ () => <Projects projects={ this.projects } />} />
+
+                    <Route exact={true} path='/projekter/:project' render={ ({match}) => <Project project={ this.projects.filter( pro => pro.urlName == match.params.project)[0]  } /> } />
+
+                    <Route exact={true} path='/kontakt' component={Contact} />
+                  </Switch>
+                </CSSTransition>
+              </TransitionGroup>
+            )} />
 
             <Routes skills={this.skills} projects={this.projects} />
 
@@ -265,12 +291,14 @@ class App extends Component {
     {
       title: 'Om mig',
       url: '',
-      icon: 'people'
+      icon: 'people',
+      isExact: true
     },
     {
       title: 'Udvalgte Projekter',
       url: 'projekter',
       icon: 'bookmark',
+      isExact: false,
       subItems: this.projects.map( (proj):MenuItem => ({
         title: proj.name,
         url: proj.urlName
@@ -279,7 +307,8 @@ class App extends Component {
     {
       title: 'Kontakt',
       url: 'kontakt',
-      icon: 'message'
+      icon: 'message',
+      isExact: true
     }
   ];
 

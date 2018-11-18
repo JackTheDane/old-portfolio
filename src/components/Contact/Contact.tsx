@@ -31,7 +31,7 @@ class Contact extends React.Component<ContactProps, ContactState> {
 
       <div className={`content-page`}>
 
-        <h1 className="transition-elem delay-0">
+        <h1 className="transition-elem delay-0 text-primary">
           Kontakt mig
         </h1>
 
@@ -70,7 +70,7 @@ class Contact extends React.Component<ContactProps, ContactState> {
         <div className="">
 
           <div className={`transition-elem delay-2 ${styles['contact__subcontent']}`}>
-            <h4 className=''>
+            <h4 className='text-primary'>
               Email
             </h4>
             <a href="mailto:martin@mbpmedia.com">
@@ -79,7 +79,7 @@ class Contact extends React.Component<ContactProps, ContactState> {
           </div>
 
           <div className={`transition-elem delay-3 ${styles['contact__subcontent']}`}>
-            <h4 className=''>
+            <h4 className='text-primary'>
               Telefon
             </h4>
             <span>
