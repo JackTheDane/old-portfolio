@@ -8,13 +8,6 @@
 
   position: relative;
 
-  background-size: cover;
-  background-position: center center;
-  background-repeat: no-repeat;
-  background-color: $primary;
-
-  background-blend-mode: multiply;
-
   &__sidebar {
     display: none;
   }
@@ -30,6 +23,34 @@
     width: 100%;
     height: 100%;
     position: relative;
+
+    animation: fadeIn .3s both;
+  }
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@media (max-width: 1000px) {
+  .app {
+    background-image: none !important; 
+  }
+}
+
+@media (min-width: 1000px) {
+  .app {
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-color: $primary;
+
+    background-blend-mode: multiply;
   }
 }
 
@@ -40,17 +61,5 @@
       overflow-x: hidden;
       display: block;
     }
-  }
-}
-
-@media (min-width: 1680px) {
-  .app {
-    // &__sidebar {
-    //   flex: 0 0 500px;
-    // }
-
-    // &__content {
-    //   margin-right: 10%;
-    // }
   }
 }

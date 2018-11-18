@@ -32,6 +32,27 @@ img {
   }
 }
 
+.ml-a {
+  margin-left: auto !important;
+}
+
+.mr-a {
+  margin-right: auto !important;
+}
+
+.mt-a {
+  margin-top: auto !important;
+}
+
+.mb-a {
+  margin-bottom: auto !important;
+}
+
+.my-a {
+  @extend .mt-a;
+  @extend .mb-a;
+}
+
 $transitionSpeed: 700ms;
 $transitionStagger: 80ms;
 $translateAmount: 80px;

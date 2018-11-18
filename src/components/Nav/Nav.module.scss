@@ -50,6 +50,7 @@
     
     & > li {
       padding: 6px 25px 6px 2px;
+      margin-right: 35px;
       border-bottom: 1px solid rgba($color: $white, $alpha: .2);
       font-size: inherit;
       color: rgba($color: $white, $alpha: .5);
@@ -70,6 +71,7 @@
       
       & > li {
         padding-right: 60px;
+        margin-right: 0;
         border-bottom-color: $white;
         color: $white !important;
       }

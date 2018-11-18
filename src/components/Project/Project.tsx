@@ -27,11 +27,11 @@ class Project extends React.Component<ProjectProps, ProjectState> {
       <div className="d-flex mt-3" style={{justifyContent: 'space-between', alignItems: 'flex-start'}}>
         <h2 className={`text-primary mb-0 transition-elem delay-2 ${styles.title}`}>
           { this.props.project.name }
-          <span className="mx-2 text-gray fw-medium"> { this.props.project.roles } </span>
+          <div className="text-gray fw-medium"> { this.props.project.roles } </div>
         </h2>
 
         { this.props.project.url != null 
-          ? <a href={this.props.project.url} target='_blank' rel='noopener' className="btn btn-primary btn-lg transition-elem delay-2"> 
+          ? <a href={this.props.project.url} target='_blank' rel='noopener' className="btn btn-primary btn-lg transition-elem delay-2 my-a"> 
             Besøg side 
             <i className="icon ml-2 icon-link"></i> 
           </a> 

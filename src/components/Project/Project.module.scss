@@ -2,7 +2,6 @@
 
 .project {
   max-width: 1200px;
-
 }
 
 .subcontent {
@@ -13,7 +12,17 @@
 }
 
 .title {
-  & > span {
+  & > div {
     font-size: .75em;
+  }
+}
+
+
+@media (min-width: 700px) {
+  .title {
+    & > div {
+      margin-left: 5px;
+      display: inline-block;
+    }
   }
 }
