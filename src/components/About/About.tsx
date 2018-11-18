@@ -4,6 +4,7 @@ import styles from './About.module.scss';
 import { ISkill, ISkills } from '../App/App';
 
 import ProfileImage from '../../images/profile.jpg';
+import { Link } from 'react-router-dom';
 
 export interface AboutProps {
   skills: ISkills;
@@ -40,13 +41,15 @@ class About extends Component<AboutProps, AboutState> {
 
           <div className={`transition-elem delay-2 ${styles["about__subcontent"]}`}>
             <h3 className={`${styles["about__subcontentTitle"]} text-primary`}>
-              Om mig
+            Front-end udvikler med kompetencer for backend & design
             </h3>
-            <p>
-              Front-end udvikler med kompetencer for backend & design. 
-              Jeg har været i Web-branchen siden 2015, og har arbejdet professionelt siden maj 2017, som hhv. freelancer, deltidsansat og selvstændig. <br/>
-            <br/>
-              Jeg anser det som værende mit job at skabe det bedste produkt for både brugeren og evt. udviklere, der skal overtage det senere. Udvikling af webløsninger er blandt mine største passioner, og jeg stræber altid efter at forbedre mig, ved at lære nye teknologier, udfordre mine evner og følge aktivt med i relevante diskussioner og podcasts, for at holde mig selv opdateret.
+            <p className="mb-0">
+              Mit navn er Martin Bøje Petersen, og jeg har siden 2015 været en del af Web-branchen, bl.a. som studerende, deltidsansat og selvstændig. <br/>
+              <br />
+              Jeg ser det som mit job at skabe det bedste produkt for både brugerne og de andre udviklere på mit hold. Derfor stræber jeg altid for at samarbejde med mit team og kunden for at opnå en harmoni mellem at skabe god brugeroplevelse og skrive let-forståelig kode. <br />
+              <br />
+              Se nogle af mine projekter <Link to={'/projekter'}>her</Link>.
+
             </p>
           </div>
 
@@ -72,7 +75,7 @@ class About extends Component<AboutProps, AboutState> {
       if (skills.hasOwnProperty(key)) {
         const skill = skills[key];
 
-        skillsArray.push(<div className="chip m-2" key={'skill_' + skill.name}>
+        skillsArray.push(<div className="chip mr-4 mt-4" key={'skill_' + skill.name}>
           <img src={skill.img} className="avatar"/>
           {skill.name}
         </div>);

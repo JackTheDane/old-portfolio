@@ -3,8 +3,6 @@ import styles from './App.module.scss';
 import Nav from '../Nav/Nav';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 
-import Routes from './Routes';
-
 // Images - Skills
 import html5 from '../../images/skills/html5.jpg';
 import angular from '../../images/skills/angular.jpg';
@@ -125,8 +123,6 @@ class App extends Component {
               </TransitionGroup>
             )} />
 
-            <Routes skills={this.skills} projects={this.projects} />
-
           </div>
         </div>
 
@@ -212,8 +208,7 @@ class App extends Component {
       ],
       description: [
         "Dental Media ApS er et marketingbureau og software udbyder, der hjælper tandlæger verden over med at få flere kunder i klinikken.", 
-        "I efteråret 2017 fik jeg til opgave at lave et nyt WordPress site til virksomheden, der var enkelt, luftigt og føltes levende, med kun en basal prototype af forsiden som udgangspunkt.",
-        "Mine opgaver i projektet var at udarbejde et design og implementerer det gennem brug af page-builder temaet “Avada”."
+        "I efteråret 2017 fik jeg til opgave at lave et nyt WordPress site til virksomheden, der var enkelt, luftigt og føltes levende, med kun en basal prototype af forsiden som udgangspunkt. Mine opgaver i projektet var at udarbejde et design og implementerer det gennem brug af page-builder temaet “Avada”."
       ]
     },
     {
@@ -237,7 +232,7 @@ class App extends Component {
       ],
       description: [
         "VENZO.nxt, et datterselskab til VENZO A/S, er et IT selskab der specialiserer sig i Cloud og AI løsninger til datahåndtering og analysering.",
-        "Som et nyt selskab, havde VENZO.nxt ingen branding eller hjemmeside selv, andet end fra deres hovedselskab. Min del af projektet fokuserede primært på den tekniske opsætning af siden, samt implementering af vores mobile-first responsive design og efterfølgende support og videreudvikling. Siden kører på WordPress, med et custom tema og bruger Advanced Custom Fields til implementering af tekst, billeder og videoer på siden."
+        "Som et nyt selskab, havde VENZO.nxt ingen branding eller hjemmeside selv, andet end fra deres hovedselskab. Min del af projektet fokuserede primært på den tekniske opsætning af siden, samt implementering af vores mobile-first responsive design og efterfølgende support og videreudvikling."
       ]
     },
     {

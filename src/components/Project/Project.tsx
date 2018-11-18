@@ -14,26 +14,23 @@ export interface ProjectState {
 }
  
 class Project extends React.Component<ProjectProps, ProjectState> {
-  constructor(props: ProjectProps) {
-    super(props);
-    // this.state = { : };
-  }
+
   render() { 
     return ( <div className={`content-page ${styles.project}`}>
-      <Link to='/projekter' className="btn btn-link btn-lg pl-0 transition-elem delay-0"> <i className="icon icon-back"></i> Andre projekter </Link>
+      <Link to='/projekter' className="btn btn-link btn-lg pl-0 btn-icon-left transition-elem delay-0"> <i className="icon icon-back"></i> Andre projekter </Link>
 
       <Carousel className={"transition-elem delay-1"} images={this.props.project.images} />
 
       <div className="d-flex mt-3" style={{justifyContent: 'space-between', alignItems: 'flex-start'}}>
-        <h2 className={`text-primary mb-0 transition-elem delay-2 ${styles.title}`}>
+        <h2 className={`text-primary mb-2 transition-elem delay-2 ${styles.title}`}>
           { this.props.project.name }
           <div className="text-gray fw-medium"> { this.props.project.roles } </div>
         </h2>
 
         { this.props.project.url != null 
-          ? <a href={this.props.project.url} target='_blank' rel='noopener' className="btn btn-primary btn-lg transition-elem delay-2 my-a"> 
+          ? <a href={this.props.project.url} target='_blank' rel='noopener' className="btn btn-primary btn-icon-right btn-lg transition-elem delay-2 my-a"> 
             Besøg side 
-            <i className="icon ml-2 icon-link"></i> 
+            <i className="icon icon-link"></i> 
           </a> 
           : '' 
         }
@@ -42,7 +39,7 @@ class Project extends React.Component<ProjectProps, ProjectState> {
 
       <div className="divider transition-elem delay-2 my-3"></div>
       
-      <div className="transition-elem delay-3">
+      <div className="transition-elem delay-3 my-5">
         {
           this.getDescription()
         }
@@ -50,9 +47,9 @@ class Project extends React.Component<ProjectProps, ProjectState> {
 
       {
         this.props.project.skillsUsed != null
-          ? <div className={`transition-elem delay-4 mt-5 ${styles.subcontent}`}>
-          <h5 className={`${styles["about__subcontentTitle"]} text-primary`}>
-            Færdigheder
+          ? <div className={`transition-elem delay-4 ${styles.subcontent}`}>
+          <h5 className={`text-primary`}>
+            Færdigheder brugt
           </h5>
 
           {this.getChips()}
@@ -72,7 +69,7 @@ class Project extends React.Component<ProjectProps, ProjectState> {
   }
 
   private getChips() {
-    return this.props.project.skillsUsed.map( skill => <div className="chip m-2" key={'skill_' + skill.name}>
+    return this.props.project.skillsUsed.map( skill => <div className="chip mr-4 mt-4" key={'skill_' + skill.name}>
       <img src={skill.img} className="avatar"/>
       {skill.name}
     </div> )

@@ -67,21 +67,24 @@ class Contact extends React.Component<ContactProps, ContactState> {
 
         </div>
 
+        <div className="divider transition-elem delay-2 my-5"></div>
+
         <div className="">
 
-          <div className={`transition-elem delay-2 ${styles['contact__subcontent']}`}>
-            <h4 className='text-primary'>
+          <div className={`transition-elem delay-3 ${styles['contact__subcontent']}`}>
+
+            <h3 className='text-primary'>
               Email
-            </h4>
+            </h3>
             <a href="mailto:martin@mbpmedia.com">
               Martin@mbpmedia.com
             </a>
           </div>
 
           <div className={`transition-elem delay-3 ${styles['contact__subcontent']}`}>
-            <h4 className='text-primary'>
+            <h3 className='text-primary'>
               Telefon
-            </h4>
+            </h3>
             <span>
               +45 42236801
             </span>

@@ -54,9 +54,9 @@ class Projects extends React.Component<ProjectsProps, ProjectsState> {
               <Link to={'/projekter/' + project.urlName} className="btn btn-primary btn-lg"> Vis projekt </Link>
 
               { project.url != null 
-                ? <a href={project.url} target='_blank' rel='noopener' className="btn btn-lg"> 
+                ? <a href={project.url} target='_blank' rel='noopener' className="btn btn-icon-right btn-lg"> 
                   Besøg side 
-                  <i className="icon ml-2 icon-link"></i> 
+                  <i className="icon icon-link"></i> 
                 </a> : '' }
               
             </div>

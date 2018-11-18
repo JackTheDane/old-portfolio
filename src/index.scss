@@ -60,7 +60,6 @@ $translateAmount: 80px;
 .fade {
   &-appear,
   &-enter {
-    overflow-y: hidden;
     
     .transition-elem {
       opacity: 0;
@@ -69,6 +68,7 @@ $translateAmount: 80px;
     
     &-active {
       z-index: 1;
+      
       .transition-elem {
         opacity: 1;
         transform: translateZ(0) translateY(0px);
@@ -142,6 +142,32 @@ $translateAmount: 80px;
   transform: translateZ(0);
 }
 
+.btn-icon-right {
+  i {
+    margin-left: 5px;
+    transition: margin-left .3s;
+  }
+
+  &:hover {
+    i {
+      margin-left: 10px;
+    }
+  }
+}
+
+.btn-icon-left {
+  i {
+    margin-right: 5px;
+    transition: margin-right .3s;
+  }
+
+  &:hover {
+    i {
+      margin-right: 10px;
+    }
+  }
+}
+
 .content-page {
   position: absolute;
   top: 0;
@@ -152,7 +178,11 @@ $translateAmount: 80px;
 
   padding: 90px 25px 30px;
   
-  overflow-y: auto;
+  overflow-y: scroll;
+
+  &::-webkit-scrollbar { 
+      display: none; 
+  }
 }
 
 @media (min-width: 600px) {
