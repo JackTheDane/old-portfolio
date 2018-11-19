@@ -55,6 +55,7 @@ img {
 
 $transitionSpeed: 700ms;
 $transitionStagger: 80ms;
+// $transitionStagger: 0ms;
 $translateAmount: 80px;
 
 .fade {
@@ -185,6 +186,13 @@ $translateAmount: 80px;
   }
 }
 
+@media (max-width: 599px) {
+  .padx-xs {
+    padding-left: 15px;
+    padding-right: 15px;
+  }
+}
+
 @media (min-width: 600px) {
   .content-page {
     padding: 90px 45px 30px;
@@ -193,6 +201,6 @@ $translateAmount: 80px;
 
 @media (min-width: 1200px) {
   .content-page {
-    padding: 60px 120px;
+    padding: 60px 100px;
   }
 }

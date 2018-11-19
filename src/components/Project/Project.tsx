@@ -17,11 +17,13 @@ class Project extends React.Component<ProjectProps, ProjectState> {
 
   render() { 
     return ( <div className={`content-page ${styles.project}`}>
-      <Link to='/projekter' className="btn btn-link btn-lg pl-0 btn-icon-left transition-elem delay-0"> <i className="icon icon-back"></i> Andre projekter </Link>
+      <div className="padx-xs">
+        <Link to='/projekter' className="btn btn-link btn-lg pl-0 btn-icon-left transition-elem delay-0"> <i className="icon icon-back"></i> Andre projekter </Link>
+      </div>
 
       <Carousel className={"transition-elem delay-1"} images={this.props.project.images} />
 
-      <div className="d-flex mt-3" style={{justifyContent: 'space-between', alignItems: 'flex-start'}}>
+      <div className="d-flex padx-xs mt-3" style={{justifyContent: 'space-between', alignItems: 'flex-start'}}>
         <h2 className={`text-primary mb-2 transition-elem delay-2 ${styles.title}`}>
           { this.props.project.name }
           <div className="text-gray fw-medium"> { this.props.project.roles } </div>
@@ -39,7 +41,7 @@ class Project extends React.Component<ProjectProps, ProjectState> {
 
       <div className="divider transition-elem delay-2 my-3"></div>
       
-      <div className="transition-elem delay-3 my-5">
+      <div className="transition-elem delay-3 my-5 padx-xs">
         {
           this.getDescription()
         }

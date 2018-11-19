@@ -57,7 +57,7 @@ class Contact extends React.Component<ContactProps, ContactState> {
             </div>
 
             <div className="form-group">
-              <button type="submit" className={`btn btn-primary my-2 mr-3 btn-lg ${this.state.status === 'loading' ? 'loading' : ''}`}>Send <i className="icon mx-2 icon-message"></i> </button>
+              <button type="submit" className={`btn btn-primary btn-icon-right my-2 mr-3 btn-lg ${this.state.status === 'loading' ? 'loading' : ''}`}>Send <i className="icon icon-message"></i> </button>
               <small>
                 Sendt via FormSpree.io
               </small>

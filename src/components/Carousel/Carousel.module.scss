@@ -2,7 +2,7 @@
 
 .carousel {
   width: 100%;
-  padding-top: 45%;
+  padding-top: 60%;
 
   margin: auto;
   position: relative;
@@ -98,6 +98,8 @@
 
 @media (min-width: 1200px) {
   .carousel {
+    padding-top: 45%;
+
     &__navigation-button {
       opacity: 0;
 

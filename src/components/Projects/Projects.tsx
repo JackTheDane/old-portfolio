@@ -17,11 +17,11 @@ export interface ProjectsState {
 class Projects extends React.Component<ProjectsProps, ProjectsState> {
   render() { 
     return (
-      <div className={`content-page`}>
+      <div className={`content-page ${styles.projects}`}>
 
-        <h1 className="transition-elem delay-0 text-primary">
+        <h2 className={`transition-elem delay-0 text-primary ${styles['projects__title']}`}>
           Udvalgte Projekter
-        </h1>
+        </h2>
 
         <div className="divider transition-elem delay-0"></div>
         
@@ -37,7 +37,7 @@ class Projects extends React.Component<ProjectsProps, ProjectsState> {
   private getProjectCards() {
     return this.props.projects.map( 
 
-      (project, i: number) => <div key={'proj_' + i} className={`column col-6 col-md-12 transition-elem delay-${i + 1} ${styles['projects__column']}`}>
+      (project, i: number) => <div key={'proj_' + i} className={`column col-6 col-md-12 transition-elem delay-${i + (i + 1)%2} ${styles['projects__column']}`}>
 
         <div className="card">
 
@@ -46,7 +46,7 @@ class Projects extends React.Component<ProjectsProps, ProjectsState> {
           </div>
 
           <div className="card-header">
-            <div className="card-title h4 text-primary"> {project.name} <span className="text-gray fw-medium ml-1">{project.roles}</span> </div>
+            <div className="card-title h4 text-primary"> {project.name} <div className={`text-gray fw-medium ${styles.cardRoles}`}>{project.roles}</div> </div>
           </div>
 
           <div className="card-footer">

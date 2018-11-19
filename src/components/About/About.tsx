@@ -40,9 +40,9 @@ class About extends Component<AboutProps, AboutState> {
         <div className={styles["about__content"]}>
 
           <div className={`transition-elem delay-2 ${styles["about__subcontent"]}`}>
-            <h3 className={`${styles["about__subcontentTitle"]} text-primary`}>
+            <h4 className={`${styles["about__subcontentTitle"]} text-primary`}>
             Front-end udvikler med kompetencer for backend & design
-            </h3>
+            </h4>
             <p className="mb-0">
               Mit navn er Martin Bøje Petersen, og jeg har siden 2015 været en del af Web-branchen, bl.a. som studerende, deltidsansat og selvstændig. <br/>
               <br />
@@ -54,12 +54,15 @@ class About extends Component<AboutProps, AboutState> {
           </div>
 
 
-          <div className={`transition-elem delay-3 ${styles["about__subcontent"]}`}>
-            <h5 className={`${styles["about__subcontentTitle"]} text-primary`}>
+          <div className={`transition-elem delay-3`}>
+            <h5 className={`${styles["about__subcontentTitle"]} ${styles.chipsTitle} text-primary mb-0`}>
               Færdigheder
             </h5>
 
-            {this.getChips()}
+            <div className={`${styles.chipsWrapper}`}>
+              {this.getChips()}
+            </div>
+
           </div>
 
         </div>

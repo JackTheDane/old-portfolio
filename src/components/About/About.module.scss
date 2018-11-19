@@ -10,7 +10,7 @@
 
   &__profile {
     display: flex;
-    min-height: 260px;
+    min-height: 220px;
     align-items: center;
     flex-direction: column;
     flex-shrink: 0;
@@ -25,21 +25,21 @@
 
   &__subcontentTitle {
     padding-bottom: 5px;
+
+    font-size: 1.05rem;
   }
 
   &__subcontent {
-    border-left: 3px solid $secondary-color-dark;
-    padding-left: 15px;
-    padding-bottom: 10px;
-    margin-top: 20px;
+    margin-bottom: 30px;
   }
 
   
   &__profileImageWrapper {
-    width: 220px;
-    height: 220px;
+    width: 180px;
+    height: 180px;
     overflow: hidden;
     border-radius: 50%;
+    margin-bottom: 20px;
     
     -webkit-box-shadow: 0px 8px 30px 5px rgba(0,0,0,0.15);
     -moz-box-shadow: 0px 8px 30px 5px rgba(0,0,0,0.15);
@@ -49,9 +49,23 @@
   &__profileTitleText {
 
     h1 {
-      font-size: 1.7rem;
+      font-size: 1.4rem;
+    }
+
+    h4 {
+      font-size: 1.1rem;
     }
   }
+}
+
+.chipsWrapper {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.chipsTitle {
+  text-align: center;
 }
 
 @media (min-width: 760px) {
@@ -68,6 +82,24 @@
 
     &__profileTitleText {
       margin-left: 20px;
+
+      h1 {
+        font-size: 2rem;
+      }
+  
+      h4 {
+        font-size: 1.2rem;
+      }
+    }
+
+    &__subcontentTitle {
+      font-size: 1.2rem;
+    }
+
+    &__subcontent {
+      border-left: 3px solid $secondary-color-dark;
+      padding-left: 15px;
+      padding-bottom: 10px;
     }
 
     &__content {
