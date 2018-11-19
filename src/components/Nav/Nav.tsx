@@ -55,7 +55,7 @@ class Nav extends Component<NavProps, NavState> {
             GitHub
           </a>
 
-          <a target='_blank' rel='noopener' href="https://github.com/JackTheDane" className={`btn btn-link ${styles.mediaPlatformsButton}`}>
+          <a target='_blank' rel='noopener' href="/documents/martin-boeje-petersen_cv.pdf" className={`btn btn-link ${styles.mediaPlatformsButton}`}>
             <i className="icon icon-people mr-2"></i>
             CV
           </a>
