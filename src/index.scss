@@ -146,26 +146,12 @@ $translateAmount: 80px;
 .btn-icon-right {
   i {
     margin-left: 5px;
-    transition: margin-left .3s;
-  }
-
-  &:hover {
-    i {
-      margin-left: 10px;
-    }
   }
 }
 
 .btn-icon-left {
   i {
     margin-right: 5px;
-    transition: margin-right .3s;
-  }
-
-  &:hover {
-    i {
-      margin-right: 10px;
-    }
   }
 }
 
@@ -202,5 +188,29 @@ $translateAmount: 80px;
 @media (min-width: 1200px) {
   .content-page {
     padding: 60px 100px;
+  }
+
+  .btn-icon-right {
+    i {
+      transition: margin-left .3s;
+    }
+  
+    &:hover {
+      i {
+        margin-left: 10px;
+      }
+    }
+  }
+  
+  .btn-icon-left {
+    i {
+      transition: margin-right .3s;
+    }
+  
+    &:hover {
+      i {
+        margin-right: 10px;
+      }
+    }
   }
 }
