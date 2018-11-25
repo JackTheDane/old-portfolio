@@ -80,15 +80,7 @@ class Contact extends React.Component<ContactProps, ContactState> {
               Martin@mbpmedia.com
             </a>
           </div>
-
-          <div className={`transition-elem delay-3 ${styles['contact__subcontent']}`}>
-            <h3 className='text-primary'>
-              Telefon
-            </h3>
-            <span>
-              +45 42236801
-            </span>
-          </div>
+          
         </div>
         
       </div>

@@ -45,11 +45,11 @@ class Projects extends React.Component<ProjectsProps, ProjectsState> {
             <div className={styles['projects__image']} style={{backgroundImage: `url(${project.images[0]})`}}></div>
           </div>
 
-          <div className="card-header">
+          <div className={`card-header ${styles.cardHeader}`}>
             <div className="card-title h4 text-primary"> {project.name} <div className={`text-gray fw-medium ${styles.cardRoles}`}>{project.roles}</div> </div>
           </div>
 
-          <div className="card-footer">
+          <div className={`card-footer ${styles.cardFooter}`}>
             <div className="btn-group btn-group-block">
               <Link to={'/projekter/' + project.urlName} className="btn btn-primary btn-lg"> Vis projekt </Link>
 

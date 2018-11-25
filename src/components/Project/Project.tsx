@@ -17,8 +17,15 @@ class Project extends React.Component<ProjectProps, ProjectState> {
 
   render() { 
     return ( <div className={`content-page ${styles.project}`}>
-      <div className="padx-xs">
+      <div className="padx-xs" style={{display: 'flex', justifyContent: 'space-between'}}>
         <Link to='/projekter' className="btn btn-link btn-lg pl-0 btn-icon-left transition-elem delay-0"> <i className="icon icon-back"></i> Andre projekter </Link>
+        { this.props.project.url != null 
+          ? <a href={this.props.project.url} target='_blank' rel='noopener' className="btn btn-primary btn-icon-right btn-lg transition-elem delay-0"> 
+            Besøg side 
+            <i className="icon icon-link"></i> 
+          </a> 
+          : '' 
+        }
       </div>
 
       <Carousel className={"transition-elem delay-1"} images={this.props.project.images} />
@@ -29,19 +36,11 @@ class Project extends React.Component<ProjectProps, ProjectState> {
           <div className="text-gray fw-medium"> { this.props.project.roles } </div>
         </h2>
 
-        { this.props.project.url != null 
-          ? <a href={this.props.project.url} target='_blank' rel='noopener' className="btn btn-primary btn-icon-right btn-lg transition-elem delay-2 my-a"> 
-            Besøg side 
-            <i className="icon icon-link"></i> 
-          </a> 
-          : '' 
-        }
-
       </div>
 
       <div className="divider transition-elem delay-2 my-3"></div>
       
-      <div className="transition-elem delay-3 my-5 padx-xs">
+      <div className="transition-elem delay-2 my-5 padx-xs">
         {
           this.getDescription()
         }
@@ -49,7 +48,7 @@ class Project extends React.Component<ProjectProps, ProjectState> {
 
       {
         this.props.project.skillsUsed != null
-          ? <div className={`transition-elem delay-4 ${styles.subcontent}`}>
+          ? <div className={`transition-elem delay-3 ${styles.subcontent}`}>
           <h5 className={`text-primary`}>
             Færdigheder brugt
           </h5>

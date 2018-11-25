@@ -27,7 +27,7 @@ class About extends Component<AboutProps, AboutState> {
             </div>
           </div>
 
-          <div className={`transition-elem delay-1 ${styles["about__profileTitleText"]}`}>
+          <div className={`transition-elem delay-0 ${styles["about__profileTitleText"]}`}>
             <h1 className="mb-2 text-primary">
               Martin Bøje Petersen
             </h1>
@@ -39,7 +39,7 @@ class About extends Component<AboutProps, AboutState> {
 
         <div className={styles["about__content"]}>
 
-          <div className={`transition-elem delay-2 ${styles["about__subcontent"]}`}>
+          <div className={`transition-elem delay-1 ${styles["about__subcontent"]}`}>
             <h4 className={`${styles["about__subcontentTitle"]} text-primary`}>
             Front-end udvikler med kompetencer for backend & design
             </h4>
@@ -54,7 +54,7 @@ class About extends Component<AboutProps, AboutState> {
           </div>
 
 
-          <div className={`transition-elem delay-3`}>
+          <div className={`transition-elem delay-2`}>
             <h5 className={`${styles["about__subcontentTitle"]} ${styles.chipsTitle} text-primary mb-0`}>
               Færdigheder
             </h5>
