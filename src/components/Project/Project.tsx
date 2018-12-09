@@ -28,19 +28,19 @@ class Project extends React.Component<ProjectProps, ProjectState> {
         }
       </div>
 
-      <Carousel className={"transition-elem delay-1"} images={this.props.project.images} />
+      <Carousel className={"transition-elem delay-0"} images={this.props.project.images} />
 
       <div className="d-flex padx-xs mt-3" style={{justifyContent: 'space-between', alignItems: 'flex-start'}}>
-        <h2 className={`text-primary mb-2 transition-elem delay-2 ${styles.title}`}>
+        <h2 className={`text-primary mb-2 transition-elem delay-1 ${styles.title}`}>
           { this.props.project.name }
           <div className="text-gray fw-medium"> { this.props.project.roles } </div>
         </h2>
 
       </div>
 
-      <div className="divider transition-elem delay-2 my-3"></div>
+      <div className="divider transition-elem delay-1 my-3"></div>
       
-      <div className="transition-elem delay-2 my-5 padx-xs">
+      <div className="transition-elem delay-1 my-5 padx-xs">
         {
           this.getDescription()
         }
@@ -48,7 +48,7 @@ class Project extends React.Component<ProjectProps, ProjectState> {
 
       {
         this.props.project.skillsUsed != null
-          ? <div className={`transition-elem delay-3 ${styles.subcontent}`}>
+          ? <div className={`transition-elem delay-2 ${styles.subcontent}`}>
           <h5 className={`text-primary`}>
             Færdigheder brugt
           </h5>

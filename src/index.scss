@@ -87,7 +87,7 @@ $translateAmount: 80px;
       .transition-elem {
         transition-duration: $transitionSpeed;
         
-        @for $i from 0 through 6 {
+        @for $i from 0 through 5 {
           &.delay-#{$i}{
             transition-delay: $transitionSpeed/2 + $transitionStagger * ($i+1);
           }
@@ -101,7 +101,7 @@ $translateAmount: 80px;
       .transition-elem {
         transition-duration: $transitionSpeed + $transitionSpeed/2;
         
-        @for $i from 0 through 6 {
+        @for $i from 0 through 5 {
           &.delay-#{$i}{
             transition-delay: $transitionStagger * $i + 300ms;
           }
@@ -128,7 +128,7 @@ $translateAmount: 80px;
      -o-transition-timing-function: cubic-bezier(0.600, -0.280, 0.735, 0.045); 
         transition-timing-function: cubic-bezier(0.600, -0.280, 0.735, 0.045); /* easeInBack */
         
-        @for $i from 0 through 6 {
+        @for $i from 0 through 5 {
           &.delay-#{$i}{
             transition-delay: $transitionStagger * $i;
           }

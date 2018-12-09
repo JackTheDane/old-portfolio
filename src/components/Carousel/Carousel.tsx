@@ -31,6 +31,11 @@ class Carousel extends React.Component<CarouselProps, CarouselState> {
           <i className="icon icon-arrow-right"></i>
         </button>
 
+        <div className={styles.slideIndexButtonWrapper}>
+          { this.getSlideButtons() }
+        </div>
+
+
       </div>
     );
   }
@@ -57,9 +62,15 @@ class Carousel extends React.Component<CarouselProps, CarouselState> {
       valueToUse = 0;
     }
 
-    this.setState({
-      currentIndex: valueToUse
-    });
+    this.setCurrentIndex(valueToUse)
+  }
+  
+  private setCurrentIndex(indexToSet: number) {
+    if (this.state.currentIndex !== indexToSet) {
+      this.setState({
+        currentIndex: indexToSet
+      });
+    }
   }
 
   private getImages() {
@@ -67,6 +78,15 @@ class Carousel extends React.Component<CarouselProps, CarouselState> {
     key={'CarImg_'+i}
     className={`${styles['carousel__image']} ${this.state.currentIndex === i ? styles['carousel__image--active'] : ''}`} 
     style={{backgroundImage: `url(${ image })`}}></div> )
+  }
+
+  private getSlideButtons() {
+    return this.props.images.map(
+      (image: string, idx: number) => <button 
+          className={`${styles.slideIndexButton} ${this.state.currentIndex == idx ? styles.slideIndexButtonActive : ''}`} 
+          onClick={() =>this.setCurrentIndex(idx)}>
+        </button>
+    )
   }
 }
  

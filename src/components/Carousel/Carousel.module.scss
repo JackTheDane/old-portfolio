@@ -96,6 +96,42 @@
   }
 }
 
+.slideIndexButtonWrapper {
+  position: absolute;
+  bottom: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.slideIndexButton {
+  padding: 6px;
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+  
+  opacity: .4;
+  
+  transition: opacity .2s;
+
+  &:focus {outline:0;}
+  
+  &:hover,
+  &.slideIndexButtonActive {
+    opacity: .9;
+  }
+  
+  &::before {
+    content: '';
+    display: block;
+    border-radius: 50%;
+    height: 12px;
+    width: 12px;
+    background-color: #fff;
+    border: 1px solid rgba(0,0,0, .25);
+
+  }
+}
+
 @media (min-width: 1200px) {
   .carousel {
     padding-top: 45%;
