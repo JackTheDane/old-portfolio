@@ -167,9 +167,11 @@ $translateAmount: 80px;
   
   overflow-y: scroll;
 
-  &::-webkit-scrollbar { 
-      display: none; 
-  }
+  width: calc(100% + 17px);
+
+  // &::-webkit-scrollbar { 
+  //     display: none; 
+  // }
 }
 
 @media (max-width: 599px) {

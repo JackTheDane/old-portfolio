@@ -40,7 +40,7 @@ class Carousel extends React.Component<CarouselProps, CarouselState> {
     );
   }
 
-  componentWillReceiveProps(nextProps: CarouselProps) {
+  public componentWillReceiveProps(nextProps: CarouselProps) {
     this.setState({
       currentIndex: 0
     })
@@ -82,7 +82,8 @@ class Carousel extends React.Component<CarouselProps, CarouselState> {
 
   private getSlideButtons() {
     return this.props.images.map(
-      (image: string, idx: number) => <button 
+      (image: string, idx: number) => <button
+          key={`btn-${idx}`} 
           className={`${styles.slideIndexButton} ${this.state.currentIndex == idx ? styles.slideIndexButtonActive : ''}`} 
           onClick={() =>this.setCurrentIndex(idx)}>
         </button>

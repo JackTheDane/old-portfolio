@@ -48,8 +48,7 @@ class About extends Component<AboutProps, AboutState> {
               <br />
               Jeg ser det som mit job at skabe det bedste produkt for både brugerne og de andre udviklere på mit hold. Derfor stræber jeg altid for at samarbejde med mit team og kunden for at opnå en harmoni mellem at skabe god brugeroplevelse og skrive let-forståelig kode. <br />
               <br />
-              Se nogle af mine projekter <Link to={'/projekter'}>her</Link>.
-
+              Se nogle af mine projekter <Link to="/projekter">her</Link>.
             </p>
           </div>
 
