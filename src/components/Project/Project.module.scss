@@ -1,9 +1,5 @@
 @import '../../colors';
 
-.project {
-  max-width: 1200px;
-}
-
 .subcontent {
   padding-left: 15px;
   margin-bottom: 20px;
@@ -30,7 +26,7 @@
       display: inline-block;
     }
   }
-  
+
   .subcontent {
     border-left: 3px solid $secondary-color-dark;
     padding-bottom: 10px;

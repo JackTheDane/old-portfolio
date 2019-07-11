@@ -1,4 +1,5 @@
 @import './spectre/spectre.scss';
+@import '~react-id-swiper/lib/styles/scss/swiper.scss';
 
 html, body, #root {
   height: 100%;
@@ -61,22 +62,22 @@ $translateAmount: 80px;
 .fade {
   &-appear,
   &-enter {
-    
+
     .transition-elem {
       opacity: 0;
       transform: translateZ(0) translateY($translateAmount);
     }
-    
+
     &-active {
       z-index: 1;
-      
+
       .transition-elem {
         opacity: 1;
         transform: translateZ(0) translateY(0px);
 
-        -webkit-transition-timing-function: cubic-bezier(0.165, 0.840, 0.440, 1.000); 
-   -moz-transition-timing-function: cubic-bezier(0.165, 0.840, 0.440, 1.000); 
-     -o-transition-timing-function: cubic-bezier(0.165, 0.840, 0.440, 1.000); 
+        -webkit-transition-timing-function: cubic-bezier(0.165, 0.840, 0.440, 1.000);
+   -moz-transition-timing-function: cubic-bezier(0.165, 0.840, 0.440, 1.000);
+     -o-transition-timing-function: cubic-bezier(0.165, 0.840, 0.440, 1.000);
         transition-timing-function: cubic-bezier(0.165, 0.840, 0.440, 1.000); /* easeOutQuart */
       }
     }
@@ -86,7 +87,7 @@ $translateAmount: 80px;
     &-active {
       .transition-elem {
         transition-duration: $transitionSpeed;
-        
+
         @for $i from 0 through 5 {
           &.delay-#{$i}{
             transition-delay: $transitionSpeed/2 + $transitionStagger * ($i+1);
@@ -100,7 +101,7 @@ $translateAmount: 80px;
     &-active {
       .transition-elem {
         transition-duration: $transitionSpeed + $transitionSpeed/2;
-        
+
         @for $i from 0 through 5 {
           &.delay-#{$i}{
             transition-delay: $transitionStagger * $i + 300ms;
@@ -115,7 +116,7 @@ $translateAmount: 80px;
       opacity: 1;
       transform: translateZ(0) translateY(0px);
     }
-    
+
     &-active {
       .transition-elem {
         opacity: 0;
@@ -123,14 +124,18 @@ $translateAmount: 80px;
         transition-duration: $transitionSpeed/2;
 
         -webkit-transition-timing-function: cubic-bezier(0.600, 0, 0.735, 0.045); /* older webkit */
--webkit-transition-timing-function: cubic-bezier(0.600, -0.280, 0.735, 0.045); 
-   -moz-transition-timing-function: cubic-bezier(0.600, -0.280, 0.735, 0.045); 
-     -o-transition-timing-function: cubic-bezier(0.600, -0.280, 0.735, 0.045); 
+-webkit-transition-timing-function: cubic-bezier(0.600, -0.280, 0.735, 0.045);
+   -moz-transition-timing-function: cubic-bezier(0.600, -0.280, 0.735, 0.045);
+     -o-transition-timing-function: cubic-bezier(0.600, -0.280, 0.735, 0.045);
         transition-timing-function: cubic-bezier(0.600, -0.280, 0.735, 0.045); /* easeInBack */
-        
+
         @for $i from 0 through 5 {
           &.delay-#{$i}{
-            transition-delay: $transitionStagger * $i;
+            @if $i < 2 {
+              transition-delay: $transitionStagger * $i;
+            } @else {
+              transition-delay: $transitionStagger * 2;
+            }
           }
         }
       }
@@ -139,7 +144,7 @@ $translateAmount: 80px;
 }
 
 .transition-elem {
-  transition-property: all;
+  transition-property: transform, opacity;
   transform: translateZ(0);
 }
 
@@ -164,14 +169,12 @@ $translateAmount: 80px;
   height: 100%;
 
   padding: 90px 25px 30px;
-  
+
   overflow-y: scroll;
 
-  width: calc(100% + 17px);
-
-  // &::-webkit-scrollbar { 
-  //     display: none; 
-  // }
+  @media (min-width: 1200px) {
+    width: calc(100% + 17px);
+  }
 }
 
 @media (max-width: 599px) {
@@ -196,19 +199,19 @@ $translateAmount: 80px;
     i {
       transition: margin-left .3s;
     }
-  
+
     &:hover {
       i {
         margin-left: 10px;
       }
     }
   }
-  
+
   .btn-icon-left {
     i {
       transition: margin-right .3s;
     }
-  
+
     &:hover {
       i {
         margin-right: 10px;

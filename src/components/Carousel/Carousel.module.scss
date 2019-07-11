@@ -2,27 +2,12 @@
 
 .carousel {
   width: 100%;
-  padding-top: 60%;
 
-  margin: auto;
-  position: relative;
-
-  background-color: $primary;
-  
   &__image {
-    height: 100%;
     width: 100%;
-    position: absolute;
+    padding-top: 60%;
 
-    opacity: 0;
-
-    transition: opacity .2s ease-in-out; 
-
-    &--active {
-      opacity: 1;
-    }
-
-    top: 0;
+    transition: opacity .2s ease-in-out;
 
     background-position: center;
     background-size: cover;
@@ -32,18 +17,18 @@
   &__navigation-button {
     background-color: transparent !important;
 
-    
+
     color: $white;
     border: none;
-    
+
     position: absolute;
     top: 0;
-    
+
     height: 100%;
     width: 56px;
     font-size: 20px;
     z-index: 5;
-    
+
     &::before {
       content: '';
       height: 100%;
@@ -58,7 +43,7 @@
     }
 
     &--left {
-      
+
       &,
       &::before {
         left: 0;
@@ -81,17 +66,11 @@
       }
     }
 
-    &:active, 
+    &:active,
     &:focus {
       outline: none;
       outline-style:none;
       box-shadow:none;
-    }
-  }
-
-  &:hover {
-    .carousel__navigation-button {
-      opacity: 1;
     }
   }
 }
@@ -104,37 +83,41 @@
 }
 
 .slideIndexButton {
-  padding: 6px;
-  border: none;
+  margin: 0 6px !important;
+  width: 12px !important;
+  height: 12px !important;
+  border-radius: 50%;
+  background-color: #fff !important;
+  border: 1px solid rgba(0,0,0, .25) !important;
+
+  transform: scale(.5);
+
   background-color: transparent;
+
   cursor: pointer;
-  
+
   opacity: .4;
-  
-  transition: opacity .2s;
+
+  transition: opacity .2s, transform .2s;
 
   &:focus {outline:0;}
-  
-  &:hover,
+
   &.slideIndexButtonActive {
     opacity: .9;
   }
-  
-  &::before {
-    content: '';
-    display: block;
-    border-radius: 50%;
-    height: 12px;
-    width: 12px;
-    background-color: #fff;
-    border: 1px solid rgba(0,0,0, .25);
 
+  &:hover,
+  &.slideIndexButtonActive {
+    transform: scale(1);
   }
 }
 
 @media (min-width: 1200px) {
   .carousel {
-    padding-top: 45%;
+
+    &__image {
+      padding-top: 45%;
+    }
 
     &__navigation-button {
       opacity: 0;
